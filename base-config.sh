@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Raspberry Pi setup, base configuration script.
-# Author: 
+# Author: Jeffrey.Powell ( jffrypwll <at> googlemail <dot> com )
 
 # Die on any errors
 set -e 
