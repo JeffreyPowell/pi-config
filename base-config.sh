@@ -29,6 +29,8 @@ apt-get -y update
 apt-get install -y --force-yes vim
 
 # Update hostname
+OLD_HOSTNAME==$'cat /etc/hostname echo'
+
 echo "$NEW_HOSTNAME" > /etc/hostname
 sed -i "s/raspberrypi/$NEW_HOSTNAME/" /etc/hosts
 hostname $NEW_HOSTNAME
