@@ -29,10 +29,13 @@ apt-get -y update
 apt-get install -y --force-yes vim
 
 # Update hostname
-OLD_HOSTNAME==$'cat /etc/hostname echo'
+OLD_HOSTNAME==$'cat /etc/hostname'
+
+echo "Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
 
 echo "$NEW_HOSTNAME" > /etc/hostname
-sed -i "s/raspberrypi/$NEW_HOSTNAME/" /etc/hosts
+sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/" /etc/hosts
+
 hostname $NEW_HOSTNAME
 
 # Set VIM as the default editor
