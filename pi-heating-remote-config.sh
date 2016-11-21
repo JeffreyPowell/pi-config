@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 # Raspberry Pi setup, pi-heating-remote configuration script.
 # Author: Jeffrey.Powell ( jffrypwll <at> googlemail <dot> com )
