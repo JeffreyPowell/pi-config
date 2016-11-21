@@ -30,7 +30,7 @@ read PUBLIC_KEY
 #apt-get install -y --force-yes vim
 
 # Update hostname
-OLD_HOSTNAME==$(cat /etc/hostname)
+OLD_HOSTNAME=$(cat /etc/hostname)
 
 echo "Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
 
