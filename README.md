@@ -3,4 +3,5 @@
 
 usage : 
 
-wget https://github.com/JeffreyPowell/pi-config/edit/master/README.md | sudo bash
+wget https://raw.githubusercontent.com/JeffreyPowell/pi-config/master/base-config.sh | sudo bash
+
