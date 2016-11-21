@@ -22,6 +22,7 @@ read PASS_PROMPT
 echo -n "Paste public key (leave blank for disabled): "
 read PUBLIC_KEY
 
+exit 1
 
 apt-get -y update
 
@@ -29,7 +30,7 @@ apt-get -y update
 apt-get install -y --force-yes vim
 
 # Update hostname
-OLD_HOSTNAME==$'cat /etc/hostname'
+OLD_HOSTNAME==$(cat /etc/hostname)
 
 echo "Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
 
