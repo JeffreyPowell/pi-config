@@ -12,15 +12,18 @@ then
   exit 1
 fi
 
+OLD_HOSTNAME=$(cat /etc/hostname)
+
+echo "Current hostname is : $OLD_HOSTNAME"
 # Variables for the rest of the script
-echo -n "Choose a hostname: "
+echo -n "Please choose a new hostname: "
 read NEW_HOSTNAME
-echo -n "User: "
-read NEW_USER
-echo -n "Password for user (leave blank for disabled): "
-read PASS_PROMPT
-echo -n "Paste public key (leave blank for disabled): "
-read PUBLIC_KEY
+#echo -n "User: "
+#read NEW_USER
+#echo -n "Password for user (leave blank for disabled): "
+#read PASS_PROMPT
+#echo -n "Paste public key (leave blank for disabled): "
+#read PUBLIC_KEY
 
 #exit 1
 
@@ -30,16 +33,14 @@ read PUBLIC_KEY
 #apt-get install -y --force-yes vim
 
 # Update hostname
-OLD_HOSTNAME=$(cat /etc/hostname)
-
 echo "Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
-
-exit 1
 
 echo "$NEW_HOSTNAME" > /etc/hostname
 sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/" /etc/hosts
 
 hostname $NEW_HOSTNAME
+
+exit 1
 
 # Set VIM as the default editor
 update-alternatives --set editor /usr/bin/vim.basic
