@@ -22,17 +22,19 @@ read PASS_PROMPT
 echo -n "Paste public key (leave blank for disabled): "
 read PUBLIC_KEY
 
-exit 1
+#exit 1
 
-apt-get -y update
+#apt-get -y update
 
 # Install some base packages
-apt-get install -y --force-yes vim
+#apt-get install -y --force-yes vim
 
 # Update hostname
 OLD_HOSTNAME==$(cat /etc/hostname)
 
 echo "Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
+
+exit 1
 
 echo "$NEW_HOSTNAME" > /etc/hostname
 sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/" /etc/hosts
