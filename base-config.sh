@@ -33,7 +33,10 @@ else
   hostname $NEW_HOSTNAME
 fi
 
-if [[ `dpkg --get-selections | grep vim` == "" ]]
+VIM_INSTALLED=$(dpkg --get-selections | grep vim)
+echo ">$VIM_INSTALLED<"
+
+if [ "$VIM_INSTALLED" = "" ]
 then
   # Install VIM editor
   apt-get install apache2 -y
