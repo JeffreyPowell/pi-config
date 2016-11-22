@@ -33,7 +33,7 @@ else
   hostname $NEW_HOSTNAME
 fi
 
-VIM_INSTALLED=$(dpkg --get-selections | grep vim)
+VIM_INSTALLED=$(which vim)
 #VIM_INSTALLED=$(vim -v 2>/dev/null )
 
 echo ">$VIM_INSTALLED<"
