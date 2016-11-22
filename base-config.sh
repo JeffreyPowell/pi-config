@@ -31,6 +31,17 @@ else
   hostname $NEW_HOSTNAME
 fi
 
+OLD_IPADDR=$(hostname -I)
+printf " Current IP address is : $OLD_IPADDR\n"
+# Variables for the rest of the script
+printf " Please choose a new STATIC IP address: (blank to skip) "
+read NEW_IPADDR
+
+
+
+
+
+
 VIM_INSTALLED=$(which vim)
 
 if [[ "$VIM_INSTALLED" == "" ]]
@@ -61,11 +72,3 @@ fi
 printf "\n\n Installation Complete. Some changes might require a reboot. \n\n"
 
 exit 1
-
-
-
-# Now for some memory tweaks!
-# Remove unnecessary consoles
-sed -ie 's|l4:4:wait:/etc/init.d/rc 4|#l4:4:wait:/etc/init.d/rc 4|g' /etc/inittab
-sed -ie 's|l5:5:wait:/etc/init.d/rc 5|#l5:5:wait:/etc/init.d/rc 5|g' /etc/inittab
-sed -ie 's|l6:6:wait:/etc/init.d/rc 6|#l6:6:wait:/etc/init.d/rc 6|g' /etc/inittab
