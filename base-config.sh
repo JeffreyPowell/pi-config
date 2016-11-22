@@ -51,10 +51,11 @@ then
   update-alternatives --set editor /usr/bin/vim.basic
   # Vim settings (colors, syntax highlighting, tab space, etc).
   mkdir -p /home/pi/.vim/colors
-  wget "http://www.vim.org/scripts/download_script.php?src_id=11157" -O /home/pi/.vim/colors/synic
+  wget "http://www.vim.org/scripts/download_script.php?src_id=11157" -O /home/pi/.vim/colors/synic.vim
   # Set VIM defaults
   cat > /home/pi/.vimrc <<VIM
 :syntax on
+:colorscheme synic
 :set t_Co=256
 :set paste
 :set softtabstop=2
@@ -62,10 +63,9 @@ then
 :set shiftwidth=2
 :set expandtab
 :set number
-:colorscheme synic
 VIM
 else
-  printf " \e[97mVim is already installed"
+  printf " \e[97m Vim is already installed"
 fi
 
 echo "Installation Complete. Some changes might require a reboot."
