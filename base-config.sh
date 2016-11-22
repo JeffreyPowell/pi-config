@@ -22,7 +22,7 @@ read NEW_HOSTNAME
 
 if [[ "$NEW_HOSTNAME" = "" ]]
 then
-  printf " Hostname not changed\n"
+  printf "\n Hostname has not been changed.\n"
 else
   # Update hostname
   printf " Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
@@ -66,7 +66,7 @@ then
 :set number
 VIM
 else
-  printf " Vim is already installed.\n"
+  printf "\n Vim is already installed. \n"
 fi
 
 printf "\n\n Installation Complete. Some changes might require a reboot. \n\n"
