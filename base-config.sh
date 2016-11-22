@@ -36,7 +36,7 @@ fi
 VIM_INSTALLED=$(dpkg --get-selections | grep vim)
 echo ">$VIM_INSTALLED<"
 
-if [ "$VIM_INSTALLED" = "" ]
+if [[ "$VIM_INSTALLED" == "" ]]
 then
   # Install VIM editor
   apt-get install apache2 -y
@@ -72,11 +72,7 @@ exit 1
 
 #apt-get -y update
 
-# Install some base packages
-#apt-get install -y --force-yes vim
 
-# Set VIM as the default editor
-update-alternatives --set editor /usr/bin/vim.basic
 
 # Add user and authorized_keys
 if [[ "$PASS_PROMPT" = "" ]]
