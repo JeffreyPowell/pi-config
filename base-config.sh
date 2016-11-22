@@ -17,7 +17,7 @@ fi
 
 OLD_HOSTNAME=$(cat /etc/hostname)
 
-echo -e "\e[34m Current hostname is : $OLD_HOSTNAME"
+echo -e "\e[34mCurrent hostname is : $OLD_HOSTNAME"
 # Variables for the rest of the script
 echo -en "\e[34m Please choose a new hostname: (blank to skip)"
 read NEW_HOSTNAME
