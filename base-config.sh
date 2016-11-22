@@ -39,7 +39,7 @@ echo ">$VIM_INSTALLED<"
 if [[ "$VIM_INSTALLED" =~ "install" ]]
 then
   # Install VIM editor
-  apt-get install apache2 -y
+  apt-get install vim -y
   # Set VIM as the default editor
   update-alternatives --set editor /usr/bin/vim.basic
   # Vim settings (colors, syntax highlighting, tab space, etc).
