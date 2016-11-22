@@ -34,7 +34,7 @@ else
 fi
 
 VIM_INSTALLED=$(dpkg --get-selections | grep vim)
-VIM_INSTALLED=$(vim -v 2>/dev/null )
+#VIM_INSTALLED=$(vim -v 2>/dev/null )
 
 echo ">$VIM_INSTALLED<"
 
