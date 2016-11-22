@@ -45,7 +45,7 @@ alias l='ls -CF'
 ALIASES
 
 chown pi:pi .bash_aliases
-source .bash_aliases
+source .bashrc
 
 VIM_INSTALLED=$(which vim)
 
