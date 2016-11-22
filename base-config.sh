@@ -12,6 +12,7 @@ clear
 if [[ `whoami` != "root" ]]
 then
   echo -e " \e[41mScript must be run as root. \e[49m"
+  echo
   exit 1
 fi
 
