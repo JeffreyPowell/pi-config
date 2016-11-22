@@ -38,9 +38,11 @@ printf " Please choose a new STATIC IP address: (blank to skip) "
 read NEW_IPADDR
 
 printf "\n\n Configuring aliases ... \n"
-sed -i "s/#alias ll='ls -l'/alias ll='ls -l'/" /home/pi/.bashrc
-
-
+cat > /home/pi/.bash_aliases <<ALIASES
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+ALIASES
 
 VIM_INSTALLED=$(which vim)
 
