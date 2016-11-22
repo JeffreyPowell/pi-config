@@ -15,14 +15,14 @@ fi
 
 OLD_HOSTNAME=$(cat /etc/hostname)
 
-printf " Current hostname is : $OLD_HOSTNAME\n"
+printf "\n\n Current hostname is : $OLD_HOSTNAME\n"
 # Variables for the rest of the script
 printf " Please choose a new hostname: (blank to skip) "
 read NEW_HOSTNAME
 
 if [[ "$NEW_HOSTNAME" = "" ]]
 then
-  printf "\n Hostname has not been changed.\n"
+  printf " Hostname has not been changed.\n"
 else
   # Update hostname
   printf " Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
@@ -32,7 +32,7 @@ else
 fi
 
 OLD_IPADDR=$(hostname -I)
-printf " Current IP address is : $OLD_IPADDR\n"
+printf "\n\n Current IP address is : $OLD_IPADDR\n"
 # Variables for the rest of the script
 printf " Please choose a new STATIC IP address: (blank to skip) "
 read NEW_IPADDR
@@ -46,6 +46,7 @@ VIM_INSTALLED=$(which vim)
 
 if [[ "$VIM_INSTALLED" == "" ]]
 then
+  printf "\n\n Installing Vim ...\n"
   # Install VIM editor
   apt-get install vim -y
   # Set VIM as the default editor
@@ -66,7 +67,7 @@ then
 :set number
 VIM
 else
-  printf "\n Vim is already installed. \n"
+  printf "\n\n Vim is already installed. \n"
 fi
 
 printf "\n\n Installation Complete. Some changes might require a reboot. \n\n"
