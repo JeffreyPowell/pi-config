@@ -9,39 +9,29 @@
 
 if [[ `whoami` != "root" ]]
 then
-  echo -e " \e[41m Script must be run as root. \e[49m"
-  echo
+  printf "\n\n Script must be run as root. \n\n"
   exit 1
 fi
-RED='\e[97m'
-GREEN='\e[97m'
-BLUE='\e[97m'
-NC='\e[49m' # No Color
-
-clear
 
 OLD_HOSTNAME=$(cat /etc/hostname)
 
-printf "$BLUE Current hostname is : $OLD_HOSTNAME\n"
+printf " Current hostname is : $OLD_HOSTNAME\n"
 # Variables for the rest of the script
-printf " \e[97m Please choose a new hostname: (blank to skip) "
+printf " Please choose a new hostname: (blank to skip) "
 read NEW_HOSTNAME
 
 if [[ "$NEW_HOSTNAME" = "" ]]
 then
-  echo -e " \e[97mHostname not changed"
+  printf " Hostname not changed\n"
 else
   # Update hostname
-  echo -e " \e[97m Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
-  echo -e " \e[97m $NEW_HOSTNAME" > /etc/hostname
+  printf " Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
+  echo "$NEW_HOSTNAME" > /etc/hostname
   sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/" /etc/hosts
   hostname $NEW_HOSTNAME
 fi
 
 VIM_INSTALLED=$(which vim)
-#VIM_INSTALLED=$(vim -v 2>/dev/null )
-
-echo ">$VIM_INSTALLED<"
 
 if [[ "$VIM_INSTALLED" == "" ]]
 then
@@ -65,10 +55,10 @@ then
 :set number
 VIM
 else
-  printf " \e[97m Vim is already installed"
+  printf " Vim is already installed.\n"
 fi
 
-echo "Installation Complete. Some changes might require a reboot."
+printf "\n\n Installation Complete. Some changes might require a reboot. \n\n"
 
 exit 1
 
