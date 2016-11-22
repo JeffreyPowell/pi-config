@@ -36,7 +36,7 @@ fi
 VIM_INSTALLED=$(dpkg --get-selections | grep vim)
 echo ">$VIM_INSTALLED<"
 
-if [[ "$VIM_INSTALLED" == *installed* ]]
+if [[ "$VIM_INSTALLED" =~ "installed" ]]
 then
   # Install VIM editor
   apt-get install apache2 -y
