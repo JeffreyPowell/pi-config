@@ -22,7 +22,7 @@ clear
 
 OLD_HOSTNAME=$(cat /etc/hostname)
 
-printf "${BLUE} Current hostname is : $OLD_HOSTNAMEn\n"
+printf "$BLUE Current hostname is : $OLD_HOSTNAME\n"
 # Variables for the rest of the script
 printf " \e[97m Please choose a new hostname: (blank to skip) "
 read NEW_HOSTNAME
