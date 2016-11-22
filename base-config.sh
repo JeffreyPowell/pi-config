@@ -24,7 +24,7 @@ OLD_HOSTNAME=$(cat /etc/hostname)
 
 printf "${BLUE} Current hostname is : $OLD_HOSTNAMEn\n"
 # Variables for the rest of the script
-printf " \e[97m Please choose a new hostname: (blank to skip)\n"
+printf " \e[97m Please choose a new hostname: (blank to skip) "
 read NEW_HOSTNAME
 
 if [[ "$NEW_HOSTNAME" = "" ]]
@@ -62,7 +62,7 @@ then
 :set shiftwidth=2
 :set expandtab
 :set number
-:colorscheme synic
+#:colorscheme synic
 VIM
 else
   printf " \e[97mVim is already installed"
