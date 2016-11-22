@@ -14,10 +14,10 @@ fi
 echo aaa
 
 # Install apache, php, 
-#CHECKAPACHE=$(dpkg --get-selections | grep apache)
+CHECKAPACHE=$(dpkg --get-selections | grep apache)
 
 echo bbb
-#echo $CHECKAPACHE
+echo $CHECKAPACHE
 echo ccc
 
 #apt-get install apache2
