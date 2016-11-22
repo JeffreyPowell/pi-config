@@ -51,7 +51,7 @@ then
   update-alternatives --set editor /usr/bin/vim.basic
   # Vim settings (colors, syntax highlighting, tab space, etc).
   mkdir -p /home/pi/.vim/colors
-  #wget "http://www.vim.org/scripts/download_script.php?src_id=11157" -O /home/pi/.vim/colors/synic
+  wget "http://www.vim.org/scripts/download_script.php?src_id=11157" -O /home/pi/.vim/colors/synic
   # Set VIM defaults
   cat > /home/pi/.vimrc <<VIM
 :syntax on
@@ -62,11 +62,13 @@ then
 :set shiftwidth=2
 :set expandtab
 :set number
-#:colorscheme synic
+:colorscheme synic
 VIM
 else
   printf " \e[97mVim is already installed"
 fi
+
+echo "Installation Complete. Some changes might require a reboot."
 
 exit 1
 
@@ -77,8 +79,3 @@ exit 1
 sed -ie 's|l4:4:wait:/etc/init.d/rc 4|#l4:4:wait:/etc/init.d/rc 4|g' /etc/inittab
 sed -ie 's|l5:5:wait:/etc/init.d/rc 5|#l5:5:wait:/etc/init.d/rc 5|g' /etc/inittab
 sed -ie 's|l6:6:wait:/etc/init.d/rc 6|#l6:6:wait:/etc/init.d/rc 6|g' /etc/inittab
-
-# Also disable serial console
-#sed -ie 's|T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100|#T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100|g' /etc/inittab 
-
-echo "Installation Complete. Some changes might require a reboot."
