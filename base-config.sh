@@ -44,16 +44,16 @@ then
   wget "http://www.vim.org/scripts/download_script.php?src_id=11157" -O /home/$NEW_USER/.vim/colors/synic
   # Set VIM defaults
   cat > /home/pi/.vimrc <<VIM
-  :syntax on
-  :set t_Co=256
-  :set paste
-  :set softtabstop=2
-  :set tabstop=2
-  :set shiftwidth=2
-  :set expandtab
-  :set number
-  :colorscheme synic
-  VIM
+:syntax on
+:set t_Co=256
+:set paste
+:set softtabstop=2
+:set tabstop=2
+:set shiftwidth=2
+:set expandtab
+:set number
+:colorscheme synic
+VIM
 else
   echo "Vim is already installed"
 fi
