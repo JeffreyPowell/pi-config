@@ -4,6 +4,9 @@
 # Author: Jeffrey.Powell ( jffrypwll <at> googlemail <dot> com )
 
 # Die on any errors
+
+clear
+
 set -e 
 
 if [[ `whoami` != "root" ]]
@@ -16,8 +19,22 @@ OLD_HOSTNAME=$(cat /etc/hostname)
 
 echo "Current hostname is : $OLD_HOSTNAME"
 # Variables for the rest of the script
-echo -n "Please choose a new hostname: "
+echo -n "Please choose a new hostname: (blank to skip)"
 read NEW_HOSTNAME
+
+if [[ "$NEW_HOSTNAME" = "" ]]
+then
+  echo "Hostname not changed"
+else
+  # Update hostname
+  echo "Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
+  echo "$NEW_HOSTNAME" > /etc/hostname
+  sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/" /etc/hosts
+  hostname $NEW_HOSTNAME
+fi
+
+exit 1
+
 #echo -n "User: "
 #read NEW_USER
 #echo -n "Password for user (leave blank for disabled): "
@@ -25,22 +42,10 @@ read NEW_HOSTNAME
 #echo -n "Paste public key (leave blank for disabled): "
 #read PUBLIC_KEY
 
-#exit 1
-
 #apt-get -y update
 
 # Install some base packages
 #apt-get install -y --force-yes vim
-
-# Update hostname
-echo "Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
-
-echo "$NEW_HOSTNAME" > /etc/hostname
-sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/" /etc/hosts
-
-hostname $NEW_HOSTNAME
-
-exit 1
 
 # Set VIM as the default editor
 update-alternatives --set editor /usr/bin/vim.basic
