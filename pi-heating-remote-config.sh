@@ -4,7 +4,7 @@
 # Author: Jeffrey.Powell ( jffrypwll <at> googlemail <dot> com )
 
 # Die on any errors
-set -e 
+#set -e 
 
 if [[ `whoami` != "root" ]]
 then
