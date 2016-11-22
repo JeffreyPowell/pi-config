@@ -11,13 +11,20 @@ then
   echo "Script must be run as root."
   exit 1
 fi
+
 echo aaa
 
 # Install apache, php, 
 CHECKAPACHE=$(dpkg --get-selections | grep apache)
 
 echo bbb
-echo $CHECKAPACHE
+echo ">$CHECKAPACHE<"
+
+if [[ `dpkg --get-selections | grep apache` == "" ]]
+then
+  echo "blank"
+fi
+
 echo ccc
 
 #apt-get install apache2
