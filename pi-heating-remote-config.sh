@@ -12,6 +12,9 @@ then
   exit 1
 fi
 
-# Variables for the rest of the script
-echo -n "Choose a hostname: "
-read NEW_HOSTNAME
+# Install apache, php, 
+CHECK_APACHE=$(dpkg --get-selections | grep apache)
+echo $CHECK_APACHE
+
+apt-get install apache2
+
