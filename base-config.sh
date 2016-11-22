@@ -34,6 +34,8 @@ else
 fi
 
 VIM_INSTALLED=$(dpkg --get-selections | grep vim)
+VIM_INSTALLED=$(vim -v)
+
 echo ">$VIM_INSTALLED<"
 
 if [[ "$VIM_INSTALLED" =~ "install" ]]
