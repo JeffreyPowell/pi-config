@@ -38,7 +38,7 @@ VIM_INSTALLED=$(which vim)
 
 echo ">$VIM_INSTALLED<"
 
-if [[ "$VIM_INSTALLED" =~ "install" ]]
+if [[ "$VIM_INSTALLED" == "" ]]
 then
   # Install VIM editor
   apt-get install vim -y
