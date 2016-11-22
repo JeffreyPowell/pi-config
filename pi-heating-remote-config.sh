@@ -4,7 +4,7 @@
 # Author: Jeffrey.Powell ( jffrypwll <at> googlemail <dot> com )
 
 # Die on any errors
-#set -e 
+set -e 
 
 if [[ `whoami` != "root" ]]
 then
@@ -23,7 +23,9 @@ echo ">$CHECKAPACHE<"
 if [[ `dpkg --get-selections | grep apache` == "" ]]
 then
   echo "blank"
-  apt-get install apache2
+  apt-get install apache2 -y
+else
+  echo "Apache is already installed"
 fi
 
 echo ccc
