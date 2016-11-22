@@ -5,22 +5,26 @@
 
 # Die on any errors
 
-clear
-
 #set -e 
 
 if [[ `whoami` != "root" ]]
 then
-  echo -e " \e[41mScript must be run as root. \e[49m"
+  echo -e " \e[41m Script must be run as root. \e[49m"
   echo
   exit 1
 fi
+RED='\e[97m'
+GREEN='\e[97m'
+BLUE='\e[97m'
+NC='\e[49m' # No Color
+
+clear
 
 OLD_HOSTNAME=$(cat /etc/hostname)
 
-echo -e " \e[97mCurrent hostname is : $OLD_HOSTNAME"
+printf "$BLUE Current hostname is : $OLD_HOSTNAME"
 # Variables for the rest of the script
-echo -en " \e[97mPlease choose a new hostname: (blank to skip)"
+printf " \e[97m Please choose a new hostname: (blank to skip)\n"
 read NEW_HOSTNAME
 
 if [[ "$NEW_HOSTNAME" = "" ]]
@@ -61,30 +65,10 @@ then
 :colorscheme synic
 VIM
 else
-  echo -e " \e[97mVim is already installed"
+  printf " \e[97mVim is already installed"
 fi
 
 exit 1
-
-#echo -n "User: "
-#read NEW_USER
-#echo -n "Password for user (leave blank for disabled): "
-#read PASS_PROMPT
-#echo -n "Paste public key (leave blank for disabled): "
-#read PUBLIC_KEY
-
-#apt-get -y update
-
-
-
-# Add user and authorized_keys
-if [[ "$PASS_PROMPT" = "" ]]
-then
-  useradd -b /home --create-home -s /bin/bash -G sudo $NEW_USER
-else
-  useradd -b /home --create-home -s /bin/bash -G sudo $NEW_USER -p `echo "$PASS_PROMPT" | openssl passwd -1 -stdin` 
-fi
-
 
 
 
