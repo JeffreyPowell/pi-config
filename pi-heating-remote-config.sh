@@ -16,9 +16,9 @@ echo aaa
 # Install apache, php, 
 #CHECKAPACHE=$(dpkg --get-selections | grep apache)
 
-#echo bbb
+echo bbb
 #echo $CHECKAPACHE
-#echo ccc
+echo ccc
 
 #apt-get install apache2
 
