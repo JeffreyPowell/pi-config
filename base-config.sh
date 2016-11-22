@@ -17,18 +17,18 @@ fi
 
 OLD_HOSTNAME=$(cat /etc/hostname)
 
-echo -e "\e[34mCurrent hostname is : $OLD_HOSTNAME"
+echo -e " \e[34mCurrent hostname is : $OLD_HOSTNAME"
 # Variables for the rest of the script
-echo -en "\e[34m Please choose a new hostname: (blank to skip)"
+echo -en " \e[34mPlease choose a new hostname: (blank to skip)"
 read NEW_HOSTNAME
 
 if [[ "$NEW_HOSTNAME" = "" ]]
 then
-  echo -e "\e[34m Hostname not changed"
+  echo -e " \e[34mHostname not changed"
 else
   # Update hostname
-  echo -e "\e[34m Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
-  echo -e "\e[34m $NEW_HOSTNAME" > /etc/hostname
+  echo -e " \e[34m Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME"
+  echo -e " \e[34m $NEW_HOSTNAME" > /etc/hostname
   sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/" /etc/hosts
   hostname $NEW_HOSTNAME
 fi
@@ -60,7 +60,7 @@ then
 :colorscheme synic
 VIM
 else
-  echo -e "\e[34mBlueVim is already installed"
+  echo -e " \e[34mBlueVim is already installed"
 fi
 
 exit 1
