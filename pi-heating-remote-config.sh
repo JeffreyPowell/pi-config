@@ -23,9 +23,7 @@ echo ">$CHECKAPACHE<"
 if [[ `dpkg --get-selections | grep apache` == "" ]]
 then
   echo "blank"
-  
-  apt-get install apache
-  
+  apt-get install apache2
 fi
 
 echo ccc
