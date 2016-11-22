@@ -44,6 +44,9 @@ alias la='ls -A'
 alias l='ls -CF'
 ALIASES
 
+chown pi:pi .bash_aliases
+source .bash_aliases
+
 VIM_INSTALLED=$(which vim)
 
 if [[ "$VIM_INSTALLED" == "" ]]
