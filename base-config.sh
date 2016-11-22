@@ -46,7 +46,7 @@ then
   update-alternatives --set editor /usr/bin/vim.basic
   # Vim settings (colors, syntax highlighting, tab space, etc).
   mkdir -p /home/pi/.vim/colors
-  wget "http://www.vim.org/scripts/download_script.php?src_id=11157" -O /home/$NEW_USER/.vim/colors/synic
+  #wget "http://www.vim.org/scripts/download_script.php?src_id=11157" -O /home/pi/.vim/colors/synic
   # Set VIM defaults
   cat > /home/pi/.vimrc <<VIM
 :syntax on
