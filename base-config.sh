@@ -94,7 +94,7 @@ fi
 
 printf "\n\n Configuring aliases ... \n"
 cat > /home/pi/.bash_aliases <<ALIASES
-alias ll='ls -l'
+alias ll='ls -hal'
 alias la='ls -A'
 alias l='ls -CF'
 ALIASES
