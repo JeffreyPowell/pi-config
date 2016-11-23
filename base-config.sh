@@ -13,7 +13,7 @@ then
   exit 1
 fi
 
-OS_VERSION=$(cat /etc/hostname)
+OS_VERSION=$(cat /etc/os-release | grep VERSION=)
 
 echo ">$OS_VERSION<"
 
@@ -25,7 +25,7 @@ else
 fi
 
 
-OLD_HOSTNAME=$(cat /etc/os-release | grep VERSION=)
+OLD_HOSTNAME=$(cat /etc/hostname)
 
 printf "\n\n Current hostname is : $OLD_HOSTNAME\n"
 # Variables for the rest of the script
