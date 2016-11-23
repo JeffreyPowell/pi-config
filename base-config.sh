@@ -44,6 +44,9 @@ else
 fi
 
 OLD_IPADDR=$(hostname -I)
+OLD_ROUTERADDR=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
+OLD_DNSADDR=$(cat /etc/resolv.conf | grep 'name' | awk '{print $2}')
+
 printf "\n\n Current IP address is : $OLD_IPADDR\n"
 # Variables for the rest of the script
 printf " Please choose a new STATIC IP address: (blank to skip) "
@@ -51,26 +54,42 @@ read NEW_IPADDR
 
 if [[ "$NEW_IPADDR" = "" ]]
 then
-  printf " IP address has not been changed.\n"
+  printf " Network configuration has not been changed.\n"
 else
-  cat > /etc/network/interfaces <<INTERFACES
-# interfaces(5) file used by ifup(8) and ifdown(8)
+  printf "\n Current GATEWAY address is : $OLD_ROUTERADDR\n"
+  printf " Please choose a new GATEWAY address: (blank to skip) "
+  read NEW_ROUTERADDR
+  if [[ "$NEW_ROUTERADDR" = "" ]]
+  then
+  NEW_ROUTERADDR=$OLD_ROUTERADDR
+  fi
 
-# Please note that this file is written to be used with dhcpcd
-# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+  printf "\n Current DNS address is : $OLD_DNSADDR\n"
+  printf " Please choose a new DNS address: (blank to skip) "
+  read NEW_DNSADDR
+  if [[ "$NEW_DNSADDR" = "" ]]
+  then
+  NEW_DNSADDR=$OLD_DNSADDR
+  fi
+  
+  cat > /etc/dhcpcd.conf <<STATIC
+hostname
+clientid
+persistent
+option rapid_commit
+option domain_name_servers, domain_name, domain_search, host_name
+option classless_static_routes
+option ntp_servers
+require dhcp_server_identifier
+slaac private
+nohook lookup-hostname
 
-# Include files from /etc/network/interfaces.d:
-source-directory /etc/network/interfaces.d
+interface wlan0
+static ip_address=$NEW_IPADDR/24
+static routers=$NEW_ROUTERADDR
+static domain_name_servers=$NEW_DNAADDR
 
-auto lo
-iface lo inet loopback
-
-iface eth0 inet manual
-
-allow-hotplug wlan0
-iface wlan0 inet manual
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-INTERFACES
+STATIC
 fi
 
 
@@ -82,7 +101,7 @@ alias l='ls -CF'
 ALIASES
 
 chown pi:pi .bash_aliases
-source .bashrc
+su -c "source .bashrc" pi
 
 VIM_INSTALLED=$(which vim)
 
