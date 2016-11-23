@@ -49,7 +49,11 @@ printf "\n\n Current IP address is : $OLD_IPADDR\n"
 printf " Please choose a new STATIC IP address: (blank to skip) "
 read NEW_IPADDR
 
-cat > /etc/network/interfaces <<INTERFACES
+if [[ "$NEW_IPADDR" = "" ]]
+then
+  printf " IP address has not been changed.\n"
+else
+  cat > /etc/network/interfaces <<INTERFACES
 # interfaces(5) file used by ifup(8) and ifdown(8)
 
 # Please note that this file is written to be used with dhcpcd
@@ -67,7 +71,7 @@ allow-hotplug wlan0
 iface wlan0 inet manual
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 INTERFACES
-
+fi
 
 
 printf "\n\n Configuring aliases ... \n"
