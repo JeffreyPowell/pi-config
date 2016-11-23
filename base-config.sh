@@ -89,7 +89,9 @@ then
   update-alternatives --set editor /usr/bin/vim.basic
   # Vim settings (colors, syntax highlighting, tab space, etc).
   mkdir -p /home/pi/.vim/colors
+  chown pi:pi /home/pi/.vim/colors
   wget "http://www.vim.org/scripts/download_script.php?src_id=11157" -O /home/pi/.vim/colors/synic.vim
+  chown pi:pi /home/pi/.vim/colors/synic.vim
   # Set VIM defaults
   cat > /home/pi/.vimrc <<VIM
 :syntax on
@@ -102,10 +104,10 @@ then
 :set expandtab
 :set number
 VIM
+ chown pi:pi /home/pi/.vimrc
 else
   printf "\n\n Vim is already installed. \n"
 fi
 
 printf "\n\n Installation Complete. Some changes might require a reboot. \n\n"
-
 exit 1
