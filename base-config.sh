@@ -15,6 +15,8 @@ fi
 
 OS_VERSION=$(cat /etc/hostname)
 
+echo ">$OS_VERSION<"
+
 if [[ $OS_VERSION == *"jessie"* ]]
 then
   printf " Like jessie\n"
