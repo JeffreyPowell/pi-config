@@ -17,11 +17,11 @@ OS_VERSION=$(cat /etc/os-release | grep VERSION=)
 
 echo ">$OS_VERSION<"
 
-if [[ $OS_VERSION == *"jessie"* ]]
+if [[ $OS_VERSION != *"jessie"* ]]
 then
-  printf " Like jessie\n"
+  printf "n\n\ Script must be run on PI OS Jessie. \n\n"
 else
-  printf " NOT like jessie\n"
+  printf " like jessie\n"
 fi
 
 
