@@ -44,9 +44,6 @@ else
 fi
 
 OLD_IPADDR=$(hostname -I)
-OLD_ROUTERADDR=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
-OLD_DNSADDR=$(cat /etc/resolv.conf | grep 'name' | awk '{print $2}')
-
 printf "\n\n Current IP address is : $OLD_IPADDR\n"
 # Variables for the rest of the script
 printf " Please choose a new STATIC IP address: (blank to skip) "
@@ -56,6 +53,7 @@ if [[ "$NEW_IPADDR" = "" ]]
 then
   printf " Network configuration has not been changed.\n"
 else
+  OLD_ROUTERADDR=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
   printf "\n Current GATEWAY address is : $OLD_ROUTERADDR\n"
   printf " Please choose a new GATEWAY address: (blank to skip) "
   read NEW_ROUTERADDR
@@ -64,6 +62,7 @@ else
   NEW_ROUTERADDR=$OLD_ROUTERADDR
   fi
 
+  OLD_DNSADDR=$(cat /etc/resolv.conf | grep 'name' | awk '{print $2}')
   printf "\n Current DNS address is : $OLD_DNSADDR\n"
   printf " Please choose a new DNS address: (blank to skip) "
   read NEW_DNSADDR
