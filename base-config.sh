@@ -86,7 +86,7 @@ nohook lookup-hostname
 interface wlan0
 static ip_address=$NEW_IPADDR/24
 static routers=$NEW_ROUTERADDR
-static domain_name_servers=$NEW_DNAADDR
+static domain_name_servers=$NEW_DNSADDR
 
 STATIC
 fi
