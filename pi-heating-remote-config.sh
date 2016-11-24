@@ -47,10 +47,8 @@ fi
 # Install 'pi-heating-remote' app
 
 PI_HEATING_V='0.0.1'
-APP_INSTALLED=""
-echo $APP_INSTALLED
 
-if [[ "$APP_INSTALLED" == "" ]]
+if [ -f "/home/pi/pi-heating-remote/README.md" ]
 then
   printf "\n\n Installing pi-heating-remote v$PI_HEATING_V ...\n"
   # Install Apache
@@ -58,7 +56,14 @@ then
   wget "https://github.com/JeffreyPowell/pi-heating-remote/archive/$PI_HEATING_V.tar.gz"
   tar -xvzf "$PI_HEATING_V.tar.gz"
   chown pi:pi "pi-heating-remote-$PI_HEATING_V"
-  mv "pi-heating-remote-$PI_HEATING_V" "pi-heating-remote"
+  mv -R "pi-heating-remote-$PI_HEATING_V" "pi-heating-remote"
+  
+  if [ !-f "/home/pi/pi-heating-remote/README.md" ]
+    then
+      printf "\n\n EXITING : pi-heating-remote v$PI_HEATING_V installation FAILED\n"
+      exit 1
+    fi
+    
 else
   printf "\n\n pi-heating-remote v$PI_HEATING_V is already installed. \n"
 fi
