@@ -59,9 +59,9 @@ then
   wget "https://github.com/JeffreyPowell/pi-heating-remote/archive/$PI_HEATING_V.tar.gz" -O "/home/pi/pi-heating-remote.tar.gz"
   tar -xvzf "/home/pi/pi-heating-remote.tar.gz"
   mv "/home/pi/pi-heating-remote-$PI_HEATING_V" "/home/pi/pi-heating-remote"
-  chown -R pi:pi "/home/pi/pi-heating-remote"
-  chmod -R 700 "/home/pi/pi-heating-remote"
-  chown -R pi:www-data "/home/pi/pi-heating-remote/www"
+  chown -R pi:www-data "/home/pi/pi-heating-remote"
+  chmod -R 750 "/home/pi/pi-heating-remote"
+  #chown -R pi:www-data "/home/pi/pi-heating-remote/www"
   chmod -R 770 "/home/pi/pi-heating-remote/www"
   rm "/home/pi/pi-heating-remote.tar.gz"
   
@@ -84,10 +84,17 @@ fi
 printf "\n\n Configuring Apache ...\n"
 
   cat > /etc/apache2/sites-available/pi-heating.conf <<VHOST
-Listen 8080
 <VirtualHost *:8080>
     ServerAdmin webmaster@localhost
-    DocumentRoot /home/pi/pi-heating-remote/www
+    DocumentRoot /home/pi/pi-heating-remote/www/
+
+    <Directory /home/pi/pi-heating-remote/www/>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride all
+        Order allow,deny
+        allow from all
+    </Directory>
+    
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
