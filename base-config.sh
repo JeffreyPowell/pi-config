@@ -98,8 +98,8 @@ alias la='ls -A'
 alias l='ls -CF'
 ALIASES
 
-chown pi:pi .bash_aliases
-su -c "source .bashrc" pi
+chown pi:pi /home/pi/.bash_aliases
+su -c "source /home/pi/.bashrc" pi
 
 VIM_INSTALLED=$(which vim)
 
