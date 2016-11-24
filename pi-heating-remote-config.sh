@@ -76,6 +76,8 @@ fi
 
 # configure apache vh on port 8080
 
+printf "\n\n Configuring Apache ...\n"
+
   cat > /etc/apache2/sites-available/pi-heating.conf <<VHOST
 Listen 8080
 <VirtualHost *:8080>
