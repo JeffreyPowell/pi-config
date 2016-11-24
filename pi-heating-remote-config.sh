@@ -24,15 +24,23 @@ fi
 
 
 APACHE_INSTALLED=$(which apache)
-
 if [[ "$APACHE_INSTALLED" == "" ]]
 then
   printf "\n\n Installing Apache ...\n"
   # Install Apache
-  apt-get install apache2 -y
+  apt-get install apache -y
+  
+  APACHE_INSTALLED=$(which apache)
+    if [[ "$APACHE_INSTALLED" == "" ]]
+    then
+      printf "\n\n Installation FAILED\n"
+      exit 1
+    fi
 else
   printf "\n\n Apache is already installed. \n"
 fi
+
+
 
 
 # Install 'pi-heating-remote' app
