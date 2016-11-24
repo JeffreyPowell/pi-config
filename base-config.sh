@@ -111,6 +111,7 @@ then
   # Set VIM as the default editor
   update-alternatives --set editor /usr/bin/vim.basic
   # Vim settings (colors, syntax highlighting, tab space, etc).
+  chown pi:pi /home/pi/.vim
   mkdir -p /home/pi/.vim/colors
   chown pi:pi /home/pi/.vim/colors
   wget "http://www.vim.org/scripts/download_script.php?src_id=11157" -O /home/pi/.vim/colors/synic.vim
