@@ -48,15 +48,17 @@ fi
 
 PI_HEATING_V='0.0.1'
 
-if [ -f "/home/pi/pi-heating-remote/README.md" ]
+if [ !-f "/home/pi/pi-heating-remote/README.md" ]
 then
   printf "\n\n Installing pi-heating-remote v$PI_HEATING_V ...\n"
   # Install Apache
   cd /home/pi
-  wget "https://github.com/JeffreyPowell/pi-heating-remote/archive/$PI_HEATING_V.tar.gz"
-  tar -xvzf "$PI_HEATING_V.tar.gz"
-  chown pi:pi "pi-heating-remote-$PI_HEATING_V"
-  mv -R "pi-heating-remote-$PI_HEATING_V" "pi-heating-remote"
+  wget "https://github.com/JeffreyPowell/pi-heating-remote/archive/$PI_HEATING_V.tar.gz" -O "/home/pi/pi-heating-remote.tar.gz"
+  #tar -xvzf "$PI_HEATING_V.tar.gz"
+  #chown pi:pi "pi-heating-remote-$PI_HEATING_V"
+  #mv -R "pi-heating-remote-$PI_HEATING_V" "pi-heating-remote"
+  tar -xvzf "pi-heating-remote.tar.gz"
+  chown pi:pi "pi-heating-remote"
   
   if [ !-f "/home/pi/pi-heating-remote/README.md" ]
     then
