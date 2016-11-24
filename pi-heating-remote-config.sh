@@ -58,7 +58,7 @@ then
   #chown pi:pi "pi-heating-remote-$PI_HEATING_V"
   #mv -R "pi-heating-remote-$PI_HEATING_V" "pi-heating-remote"
   tar -xvzf "/home/pi/pi-heating-remote.tar.gz"
-  mv -R "/home/pi/pi-heating-remote-$PI_HEATING_V" "/home/pi/pi-heating-remote"
+  mv "/home/pi/pi-heating-remote-$PI_HEATING_V" "/home/pi/pi-heating-remote"
   chown -R pi:pi "/home/pi/pi-heating-remote"
   
   if [ ! -f "/home/pi/pi-heating-remote/README.md" ]
