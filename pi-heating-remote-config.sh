@@ -1,36 +1,47 @@
 #!/bin/bash
 
-# Raspberry Pi setup, pi-heating-remote configuration script.
-# Author: Jeffrey.Powell ( jffrypwll <at> googlemail <dot> com )
+#          Raspberry Pi setup, 'pi-heating-remote' configuration script.
+# Author : Jeffrey.Powell ( jffrypwll <at> googlemail <dot> com )
+# Date   : Nov 2016
 
 # Die on any errors
+
 set -e 
 
 if [[ `whoami` != "root" ]]
 then
-  echo "Script must be run as root."
+  printf "\n\n Script must be run as root. \n\n"
   exit 1
 fi
 
-echo aaa
+OS_VERSION=$(cat /etc/os-release | grep VERSION=)
 
-# Install apache, php, 
-CHECKAPACHE=$(dpkg --get-selections | grep apache)
-
-echo bbb
-echo ">$CHECKAPACHE<"
-
-if [[ `dpkg --get-selections | grep apache` == "" ]]
+if [[ $OS_VERSION != *"jessie"* ]]
 then
-  echo "blank"
-  apt-get install apache2 -y
-else
-  echo "Apache is already installed"
+  printf "n\n\ Script must be run on PI OS Jessie. \n\n"
+  exit 1
 fi
 
-echo ccc
 
-#apt-get install apache2
+APACHE_INSTALLED=$(which apache)
 
-echo ddd
+if [[ "$APACHE_INSTALLED" == "" ]]
+then
+  printf "\n\n Installing Apache ...\n"
+  # Install Apache
+  apt-get install apache -y
+else
+  printf "\n\n Apache is already installed. \n"
+fi
 
+# install app
+
+# configure app
+
+# configure apache vh on port 8080
+
+
+
+
+printf "\n\n Installation Complete. Some changes might require a reboot. \n\n"
+exit 1
