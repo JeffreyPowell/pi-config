@@ -30,6 +30,8 @@ then
   printf "\n\n Installing Apache ...\n"
   # Install Apache
   apt-get install apache2 -y
+  update-rc.d apache2 enable
+  service apache2 start
   
   APACHE_INSTALLED=$(which apache2)
     if [[ "$APACHE_INSTALLED" == "" ]]
@@ -81,11 +83,15 @@ printf "\n\n Configuring Apache ...\n"
   cat > /etc/apache2/sites-available/pi-heating.conf <<VHOST
 Listen 8080
 <VirtualHost *:8080>
-    DocumentRoot "/home/pi/pi-heating-remote/www/"
+    ServerAdmin webmaster@localhost
+    DocumentRoot /home/pi/pi-heating-remote/www
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 VHOST
 
-
+a2ensite pi-heating.conf
+service apache2 restart
 
 printf "\n\n Installation Complete. Some changes might require a reboot. \n\n"
 exit 1
