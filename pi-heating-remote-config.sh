@@ -36,6 +36,8 @@ fi
 
 # install app
 
+https://github.com/JeffreyPowell/pi-heating-remote/archive/0.0.1.tar.gz
+
 # configure app
 
 # configure apache vh on port 8080
