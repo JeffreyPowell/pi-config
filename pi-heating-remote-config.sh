@@ -48,6 +48,8 @@ then
   cd /home/pi
   wget "https://github.com/JeffreyPowell/pi-heating-remote/archive/$PI_HEATING_V.tar.gz"
   tar -xvzf "$PI_HEATING_V.tar.gz"
+  chown pi:pi "pi-heating-remote-$PI_HEATING_V"
+  mv "pi-heating-remote-$PI_HEATING_V" "pi-heating-remote"
 else
   printf "\n\n pi-heating-remote v$PI_HEATING_V is already installed. \n"
 fi
