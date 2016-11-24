@@ -60,7 +60,9 @@ then
   tar -xvzf "/home/pi/pi-heating-remote.tar.gz"
   mv "/home/pi/pi-heating-remote-$PI_HEATING_V" "/home/pi/pi-heating-remote"
   chown -R pi:pi "/home/pi/pi-heating-remote"
-  chmod -R 750 "/home/pi/pi-heating-remote"
+  chmod -R 700 "/home/pi/pi-heating-remote"
+  chown -R pi:www-data "/home/pi/pi-heating-remote/www"
+  chmod -R 770 "/home/pi/pi-heating-remote/www"
   rm "/home/pi/pi-heating-remote.tar.gz"
   
   if [ ! -f "/home/pi/pi-heating-remote/README.md" ]
@@ -84,6 +86,7 @@ printf "\n\n Configuring Apache ...\n"
   cat > /etc/apache2/sites-available/pi-heating.conf <<VHOST
 Listen 8080
 <VirtualHost *:8080>
+    Options +Indexes FollowSymLinks
     ServerAdmin webmaster@localhost
     DocumentRoot /home/pi/pi-heating-remote/www
     ErrorLog ${APACHE_LOG_DIR}/error.log
