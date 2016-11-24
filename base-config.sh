@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Raspberry Pi setup, base configuration script.
-# Author: Jeffrey.Powell ( jffrypwll <at> googlemail <dot> com )
+#          Raspberry Pi setup, base configuration script.
+# Author : Jeffrey.Powell ( jffrypwll <at> googlemail <dot> com )
+# Date   : Nov 2016
 
 # Die on any errors
 
@@ -26,7 +27,7 @@ OLD_HOSTNAME=$(cat /etc/hostname)
 
 printf "\n\n Current hostname is : $OLD_HOSTNAME\n"
 # Variables for the rest of the script
-printf " Please choose a new hostname: (blank to skip) "
+printf " Please choose a new hostname: (leave blank to not change) "
 read NEW_HOSTNAME
 
 if [[ "$NEW_HOSTNAME" = "" ]]
@@ -43,7 +44,7 @@ fi
 OLD_IPADDR=$(hostname -I)
 printf "\n\n Current IP address is : $OLD_IPADDR\n"
 # Variables for the rest of the script
-printf " Please choose a new STATIC IP address: (blank to skip) "
+printf " Please choose a new STATIC IP address: (blank to skip network change) "
 read NEW_IPADDR
 
 if [[ "$NEW_IPADDR" = "" ]]
@@ -52,7 +53,7 @@ then
 else
   OLD_ROUTERADDR=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
   printf "\n Current GATEWAY address is : $OLD_ROUTERADDR\n"
-  printf " Please choose a new GATEWAY address: (blank to skip) "
+  printf " Please choose a new GATEWAY address: (leave blank to not change) "
   read NEW_ROUTERADDR
   if [[ "$NEW_ROUTERADDR" = "" ]]
   then
@@ -61,7 +62,7 @@ else
 
   OLD_DNSADDR=$(cat /etc/resolv.conf | grep 'name' | awk '{print $2}')
   printf "\n Current DNS address is : $OLD_DNSADDR\n"
-  printf " Please choose a new DNS address: (blank to skip) "
+  printf " Please choose a new DNS address: (leave blank to not change) "
   read NEW_DNSADDR
   if [[ "$NEW_DNSADDR" = "" ]]
   then
