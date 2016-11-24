@@ -48,7 +48,7 @@ fi
 
 PI_HEATING_V='0.0.1'
 
-if [ !-f "/home/pi/pi-heating-remote/README.md" ]
+if [ ! -f "/home/pi/pi-heating-remote/README.md" ]
 then
   printf "\n\n Installing pi-heating-remote v$PI_HEATING_V ...\n"
   # Install Apache
@@ -60,7 +60,7 @@ then
   tar -xvzf "pi-heating-remote.tar.gz"
   chown pi:pi "pi-heating-remote"
   
-  if [ !-f "/home/pi/pi-heating-remote/README.md" ]
+  if [ ! -f "/home/pi/pi-heating-remote/README.md" ]
     then
       printf "\n\n EXITING : pi-heating-remote v$PI_HEATING_V installation FAILED\n"
       exit 1
