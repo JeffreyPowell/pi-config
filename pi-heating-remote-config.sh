@@ -29,7 +29,7 @@ if [[ "$APACHE_INSTALLED" == "" ]]
 then
   printf "\n\n Installing Apache ...\n"
   # Install Apache
-  apt-get install apache -y
+  apt-get install apache2 -y
 else
   printf "\n\n Apache is already installed. \n"
 fi
