@@ -33,7 +33,7 @@ then
   APACHE_INSTALLED=$(which apache)
     if [[ "$APACHE_INSTALLED" == "" ]]
     then
-      printf "\n\n Installation FAILED\n"
+      printf "\n\n Apache installation FAILED\n"
       exit 1
     fi
 else
