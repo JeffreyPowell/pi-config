@@ -86,12 +86,17 @@ printf "\n\n Configuring Apache ...\n"
   cat > /etc/apache2/sites-available/pi-heating.conf <<VHOST
 Listen 8080
 <VirtualHost *:8080>
-    Options +Indexes FollowSymLinks
     ServerAdmin webmaster@localhost
     DocumentRoot /home/pi/pi-heating-remote/www
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
+<Directory "/home/pi/pi-heating-remote/www">
+		Options +Indexes FollowSymLinks +ExecCGI
+		AllowOverride AuthConfig FileInfo
+    Order allow,deny
+		Allow from all
+</Directory>
 VHOST
 
 a2ensite pi-heating.conf
