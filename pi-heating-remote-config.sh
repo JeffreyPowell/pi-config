@@ -54,9 +54,6 @@ then
   # Install Apache
   cd /home/pi
   wget "https://github.com/JeffreyPowell/pi-heating-remote/archive/$PI_HEATING_V.tar.gz" -O "/home/pi/pi-heating-remote.tar.gz"
-  #tar -xvzf "$PI_HEATING_V.tar.gz"
-  #chown pi:pi "pi-heating-remote-$PI_HEATING_V"
-  #mv -R "pi-heating-remote-$PI_HEATING_V" "pi-heating-remote"
   tar -xvzf "/home/pi/pi-heating-remote.tar.gz"
   mv "/home/pi/pi-heating-remote-$PI_HEATING_V" "/home/pi/pi-heating-remote"
   chown -R pi:pi "/home/pi/pi-heating-remote"
@@ -77,6 +74,8 @@ fi
 # configure app
 
 # configure apache vh on port 8080
+
+
 
 
 
