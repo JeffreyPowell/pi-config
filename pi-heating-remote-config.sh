@@ -60,6 +60,7 @@ then
   tar -xvzf "/home/pi/pi-heating-remote.tar.gz"
   mv "/home/pi/pi-heating-remote-$PI_HEATING_V" "/home/pi/pi-heating-remote"
   chown -R pi:pi "/home/pi/pi-heating-remote"
+  rm "/home/pi/pi-heating-remote.tar.gz"
   
   if [ ! -f "/home/pi/pi-heating-remote/README.md" ]
     then
