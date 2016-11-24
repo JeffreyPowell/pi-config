@@ -6,7 +6,7 @@
 
 # Die on any errors
 
-set -e 
+#set -e 
 
 if [[ `whoami` != "root" ]]
 then
