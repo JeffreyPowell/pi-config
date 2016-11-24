@@ -22,6 +22,7 @@ then
   exit 1
 fi
 
+apt-get update
 
 OLD_HOSTNAME=$(cat /etc/hostname)
 
