@@ -34,9 +34,25 @@ else
   printf "\n\n Apache is already installed. \n"
 fi
 
-# install app
 
-https://github.com/JeffreyPowell/pi-heating-remote/archive/0.0.1.tar.gz
+# Install 'pi-heating-remote' app
+
+PI_HEATING_V='0.0.1'
+APP_INSTALLED=""
+echo $APP_INSTALLED
+
+if [[ "$APP_INSTALLED" == "" ]]
+then
+  printf "\n\n Installing pi-heating-remote v$PI_HEATING_V ...\n"
+  # Install Apache
+  cd /home/pi
+  wget "https://github.com/JeffreyPowell/pi-heating-remote/archive/$PI_HEATING_V.tar.gz"
+  tar -xvzf "$PI_HEATING_V.tar.gz"
+else
+  printf "\n\n pi-heating-remote v$PI_HEATING_V is already installed. \n"
+fi
+
+
 
 # configure app
 
