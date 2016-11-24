@@ -91,12 +91,6 @@ Listen 8080
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-<Directory "/home/pi/pi-heating-remote/www">
-		Options +Indexes FollowSymLinks +ExecCGI
-		AllowOverride AuthConfig FileInfo
-    Order allow,deny
-		Allow from all
-</Directory>
 VHOST
 
 a2ensite pi-heating.conf
