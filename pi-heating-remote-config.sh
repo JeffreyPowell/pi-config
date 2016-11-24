@@ -31,7 +31,8 @@ then
   # Install Apache
   apt-get install apache2 -y
   update-rc.d apache2 enable
-  service apache2 start
+  a2dissite 000-default.conf
+  service apache2 restart
   
   APACHE_INSTALLED=$(which apache2)
     if [[ "$APACHE_INSTALLED" == "" ]]
