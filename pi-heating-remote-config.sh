@@ -56,9 +56,11 @@ then
   printf "\n\n Installing pi-heating-remote v$PI_HEATING_V ...\n"
   # Install Apache
   cd /home/pi
-  if [ -d "/home/pi/pi-heating-remote/" ]
+  if [ -d "/home/pi/pi-heating-remote" ] then rm -rf "/home/pi/pi-heating-remote" fi
+  
+  if [ -d "/var/www/pi-heating-remote" ]
   then
-    rm -rf "/home/pi/pi-heating-remote/"
+    rm -rf "/var/www/pi-heating-remote"
   fi
   
   wget "https://github.com/JeffreyPowell/pi-heating-remote/archive/$PI_HEATING_V.tar.gz" -O "/home/pi/pi-heating-remote.tar.gz"
@@ -92,9 +94,9 @@ printf "\n\n Configuring Apache ...\n"
   cat > /etc/apache2/sites-available/pi-heating.conf <<VHOST
 <VirtualHost *:8080>
     ServerAdmin webmaster@localhost
-    DocumentRoot /home/pi/pi-heating-remote/www/
+    DocumentRoot /var/www/
 
-    <Directory /home/pi/pi-heating-remote/www/>
+    <Directory /var/www/pi-heating-remote/>
         Options Indexes FollowSymLinks MultiViews
         AllowOverride all
         Order allow,deny
