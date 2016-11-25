@@ -38,8 +38,7 @@ then
     exit 1
   fi
   printf "\n\n REBOOT : Reeboot required to enable one wire module.\n"
-  read x
-  shutdown -r now
+  shutdown -r +1
 else
   printf "\n\ One wire module enabled. \n"
 fi
