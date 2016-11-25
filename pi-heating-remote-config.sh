@@ -23,6 +23,15 @@ then
   exit 1
 fi
 
+if [ cat /boot/config.txt| grep '^dtoverlay=w1-gpio$' ]
+then
+  echo true
+else
+  echo false
+fi
+
+exit 1
+
 
 APACHE_INSTALLED=$(which apache2)
 if [[ "$APACHE_INSTALLED" == "" ]]
