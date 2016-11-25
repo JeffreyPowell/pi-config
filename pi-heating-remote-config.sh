@@ -95,7 +95,7 @@ fi
 printf "\n\n Configuring Apache ...\n"
 
   cat > /etc/apache2/sites-available/pi-heating.conf <<VHOST
-<VirtualHost *:8080>
+<VirtualHost *:80>
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/
 
