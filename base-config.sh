@@ -120,7 +120,6 @@ then
   cat > /home/pi/.vimrc <<VIM
 :syntax on
 :colorscheme synic
-:set t_Co=256
 :set paste
 :set softtabstop=2
 :set tabstop=2
