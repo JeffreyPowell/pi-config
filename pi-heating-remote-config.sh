@@ -73,8 +73,8 @@ then
   mv "/home/pi/pi-heating-remote/www" "/var/www/pi-heating-remote"
   chown -R pi:pi "/home/pi/pi-heating-remote"
   chmod -R 750 "/home/pi/pi-heating-remote"
-  chown -R www-data:pi "/var/www/pi-heating-remote"
-  chmod -R 770 "/var/www/pi-heating-remote"
+  chown -R pi:pi "/var/www/pi-heating-remote"
+  chmod -R 755 "/var/www/pi-heating-remote"
   
   if [ ! -f "/home/pi/pi-heating-remote/README.md" ]
     then
