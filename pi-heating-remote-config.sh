@@ -23,7 +23,7 @@ then
   exit 1
 fi
 
-if [ cat /boot/config.txt| grep '^dtoverlay=w1-gpio$' ]
+if [ cat /boot/config.txt | grep '^dtoverlay=w1-gpio$' ]
 then
   echo true
 else
