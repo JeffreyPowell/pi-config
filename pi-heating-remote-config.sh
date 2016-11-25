@@ -94,8 +94,12 @@ fi
 
 printf "\n\n Configuring Apache ...\n"
 
+  cat > /etc/apache2/sites-available/pi-heating.conf <<PORTS
+Listen 8080
+PORTS
+
   cat > /etc/apache2/sites-available/pi-heating.conf <<VHOST
-<VirtualHost *:80>
+<VirtualHost *:8080>
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/pi-heating-remote/
 
