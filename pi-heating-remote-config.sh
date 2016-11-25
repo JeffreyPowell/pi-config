@@ -103,12 +103,12 @@ PORTS
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/pi-heating-remote/
 
- #   <Directory /var/www/pi-heating-remote/>
- #       Options Indexes FollowSymLinks MultiViews
- #       AllowOverride all
- #       Order allow,deny
- #       allow from all
- #   </Directory>
+    <Directory /var/www/pi-heating-remote/>
+        Options -Indexes
+        AllowOverride all
+        Order allow,deny
+        allow from all
+    </Directory>
     
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
