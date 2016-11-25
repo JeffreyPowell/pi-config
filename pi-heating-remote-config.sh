@@ -23,7 +23,11 @@ then
   exit 1
 fi
 
-if [ grep '^dtoverlay=w1-gpio$' /boot/config.txt ]
+ENABLE_W1=$( cat /boot/config.txt | grep '^dtoverlay=w1-gpio$' )
+
+echo $ENABLE_W1
+
+if [[ $ENABLE_W1 == "" ]]
 then
   echo true
 else
