@@ -56,6 +56,11 @@ then
   printf "\n\n Installing pi-heating-remote v$PI_HEATING_V ...\n"
   # Install Apache
   cd /home/pi
+  if [ -d "/home/pi/pi-heating-remote/" ]
+  then
+    rm -rf "/home/pi/pi-heating-remote/"
+  fi
+  
   wget "https://github.com/JeffreyPowell/pi-heating-remote/archive/$PI_HEATING_V.tar.gz" -O "/home/pi/pi-heating-remote.tar.gz"
   tar -xvzf "/home/pi/pi-heating-remote.tar.gz"
   rm "/home/pi/pi-heating-remote.tar.gz"
