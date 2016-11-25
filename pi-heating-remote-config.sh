@@ -33,10 +33,16 @@ then
     printf "\n\n EXITING : Unable to write to boot config. \n\n"
     exit 1
   fi
-  printf "\n\n REBOOT : Reeboot required to enable one wire module.\n"
+  
+  printf "\n\n REBOOT : Reeboot required to enable one wire module.\n\n"
   shutdown -r +1
 else
   printf "\n One wire module enabled. \n"
+  
+  modprobe w1-gpio
+  modprobe w1-therm
+  
+  printf "\n w1_gpio and w1_therm modules enabled. \n"
 fi
 
 exit 1
