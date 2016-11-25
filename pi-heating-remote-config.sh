@@ -19,7 +19,7 @@ OS_VERSION=$(cat /etc/os-release | grep VERSION=)
 
 if [[ $OS_VERSION != *"jessie"* ]]
 then
-  printf "n\n\ Script must be run on PI OS Jessie. \n\n"
+  printf "\n\n EXITING : Script must be run on PI OS Jessie. \n\n"
   exit 1
 fi
 
@@ -29,9 +29,19 @@ echo $ENABLE_W1
 
 if [[ $ENABLE_W1 == "" ]]
 then
-  echo true
+  echo "dtoverlay=w1-gpio" >> /boot/config.txt
+  
+  ENABLE_W1=$( cat /boot/config.txt | grep '^dtoverlay=w1-gpio$' )
+  if [[ $ENABLE_W1 == "" ]]
+  then  
+    printf "\n\n EXITING : Unable to write to boot config. \n\n"
+    exit 1
+  fi
+  printf "\n\n REBOOT : Reeboot required to enable one wire module.\n"
+  read x
+  shutdown -r now
 else
-  echo false
+  printf "\n\ One wire module enabled. \n"
 fi
 
 exit 1
