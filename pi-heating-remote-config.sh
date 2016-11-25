@@ -56,7 +56,10 @@ then
   printf "\n\n Installing pi-heating-remote v$PI_HEATING_V ...\n"
   # Install Apache
   cd /home/pi
-  if [ -d "/home/pi/pi-heating-remote" ] then rm -rf "/home/pi/pi-heating-remote" fi
+  if [ -d "/home/pi/pi-heating-remote" ]
+  then
+    rm -rf "/home/pi/pi-heating-remote"
+  fi
   
   if [ -d "/var/www/pi-heating-remote" ]
   then
