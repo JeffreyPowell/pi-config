@@ -16,7 +16,6 @@ then
 fi
 
 OS_VERSION=$(cat /etc/os-release | grep VERSION=)
-
 if [[ $OS_VERSION != *"jessie"* ]]
 then
   printf "\n\n EXITING : Script must be run on PI OS Jessie. \n\n"
@@ -24,9 +23,6 @@ then
 fi
 
 ENABLE_W1=$( cat /boot/config.txt | grep '^dtoverlay=w1-gpio$' )
-
-echo $ENABLE_W1
-
 if [[ $ENABLE_W1 == "" ]]
 then
   echo "dtoverlay=w1-gpio" >> /boot/config.txt
@@ -40,7 +36,7 @@ then
   printf "\n\n REBOOT : Reeboot required to enable one wire module.\n"
   shutdown -r +1
 else
-  printf "\n\ One wire module enabled. \n"
+  printf "\n One wire module enabled. \n"
 fi
 
 exit 1
@@ -72,7 +68,6 @@ fi
 # Install 'pi-heating-remote' app
 
 PI_HEATING_V='0.0.1'
-
 if [ ! -f "/home/pi/pi-heating-remote/README.md" ]
 then
   printf "\n\n Installing pi-heating-remote v$PI_HEATING_V ...\n"
