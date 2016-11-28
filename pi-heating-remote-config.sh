@@ -33,7 +33,7 @@ then
     printf "\n\n EXITING : Unable to write to boot config. \n\n"
     exit 1
   fi
-  
+  apt-get update -y
   printf "\n\n REBOOT : Reeboot required to enable one wire module.\n\n"
   shutdown -r +1
 else
@@ -68,7 +68,23 @@ else
   printf "\n\n Apache is already installed. \n"
 fi
 
-
+PHP_INSTALLED=$(which php)
+echo ">$PHP_INSTALLED<"
+if [[ "$PHP_INSTALLED" == "" ]]
+then
+  printf "\n\n Installing PHP ...\n"
+  # Install Apache
+  apt-get install php -y
+  
+  PHP_INSTALLED=$(which php)
+    if [[ "$PHP_INSTALLED" == "" ]]
+    then
+      printf "\n\n EXITING : PHP installation FAILED\n"
+      exit 1
+    fi
+else
+  printf "\n\n PHP is already installed. \n"
+fi
 
 
 # Install 'pi-heating-remote' app
