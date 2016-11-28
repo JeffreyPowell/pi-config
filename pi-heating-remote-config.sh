@@ -45,9 +45,6 @@ else
   printf "\n w1_gpio and w1_therm modules enabled. \n"
 fi
 
-exit 1
-
-
 APACHE_INSTALLED=$(which apache2)
 if [[ "$APACHE_INSTALLED" == "" ]]
 then
