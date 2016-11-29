@@ -66,7 +66,6 @@ else
 fi
 
 PHP_INSTALLED=$(which php)
-echo ">$PHP_INSTALLED<"
 if [[ "$PHP_INSTALLED" == "" ]]
 then
   printf "\n\n Installing PHP ...\n"
