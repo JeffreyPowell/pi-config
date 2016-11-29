@@ -85,7 +85,7 @@ fi
 
 # Install 'pi-heating-remote' app
 
-PI_HEATING_V='0.0.1'
+PI_HEATING_V='1.0.0'
 if [ ! -f "/home/pi/pi-heating-remote/README.md" ]
 then
   printf "\n\n Installing pi-heating-remote v$PI_HEATING_V ...\n"
