@@ -78,6 +78,25 @@ else
   printf "\n\n MYSQL is already installed. \n"
 fi
 
+PYMYSQL_INSTALLED=$(which python-mysqldb)
+echo ">$PYMYSQL_INSTALLED<"
+if [[ "$PYMYSQL_INSTALLED" == "" ]]
+then
+  printf "\n\n Installing MYSQL Python Module ...\n"
+  # Install Apache
+  apt-get install python-mysqldb -y
+  
+  PYMYSQL_INSTALLED=$(which python-mysqldb)
+    if [[ "$PYMYSQL_INSTALLED" == "" ]]
+    then
+      printf "\n\n EXITING : MYSQL Python Module installation FAILED\n"
+      exit 1
+    fi
+else
+  printf "\n\n MYSQL Python Module is already installed. \n"
+fi
+
+
 
 # Install 'pi-heating-hub' app
 
