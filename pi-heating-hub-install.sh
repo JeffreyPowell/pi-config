@@ -78,6 +78,8 @@ else
   printf "\n\n MYSQL is already installed. \n"
 fi
 
+# apt-get install python3-mysqldb -y
+
 PYMYSQL_INSTALLED=$(which python-mysqldb)
 echo ">$PYMYSQL_INSTALLED<"
 if [[ "$PYMYSQL_INSTALLED" == "" ]]
