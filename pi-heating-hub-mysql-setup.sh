@@ -1,6 +1,9 @@
 #!/bin/bash
 
-mysql -uroot -proot << EOF
+printf " Please enter the MySQL root password : "
+read MYSQL_PASSWORD
+
+Dmysql -uroot -p$MYSQL_PASSWORD<< EOF
 
 CREATE DATABASE pi-heating_db;
 
