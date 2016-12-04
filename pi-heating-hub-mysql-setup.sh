@@ -5,7 +5,7 @@ read MYSQL_PASSWORD
 
 mysql -uroot -p$MYSQL_PASSWORD<< EOF
 
-CREATE DATABASE pi-heating_db;
+CREATE DATABASE pi_heating_db;
 
 CREATE USER 'pi'@'localhost' IDENTIFIED BY 'password';
 
