@@ -7,6 +7,8 @@ mysql -uroot -p$MYSQL_PASSWORD<< EOF
 
 CREATE DATABASE pi_heating_db;
 
+DROP USER pi@localhost;
+FLUSH PRIVILEGES;
 CREATE USER 'pi'@'localhost' IDENTIFIED BY 'password';
 
 GRANT ALL ON pi_heating_db.* TO 'pi'@'localhost';
