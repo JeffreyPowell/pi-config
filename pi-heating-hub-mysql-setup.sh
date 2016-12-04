@@ -56,15 +56,15 @@ INSERT INTO  sched_output VALUES ( 8,          2,               2 );
 INSERT INTO  sched_output VALUES ( 9,          3,               2 );
 INSERT INTO  sched_output VALUES (10,          4,               2 );
 
-CREATE TABLE sched_input        ( id INT, sched_id INT, input_id INT, operator CHAR, test FLOAT );
+CREATE TABLE sched_input        ( id INT, sched_id INT, input_id INT, test CHAR, value FLOAT );
 INSERT INTO  sched_input VALUES ( 1,          1,               1,                '<',           18.5 );
 INSERT INTO  sched_input VALUES ( 2,          2,               1,                '<',           20.0 );
 INSERT INTO  sched_input VALUES ( 3,          3,               1,                '<',           10.0 );
 
-CREATE TABLE sched_timers        ( id INT, sched_id INT, timer_id INT operator CHAR, test BOOLEANT );
+CREATE TABLE sched_timers        ( id INT, sched_id INT, timer_id INT test CHAR, test BOOLEANT );
 INSERT INTO  sched_timers VALUES ( 1,          1,               1,                '=',           False );
 
-CREATE TABLE sched_modes        ( id INT, sched_id INT, mode_id INT, operator CHAR, test BOOLEANT );
+CREATE TABLE sched_modes        ( id INT, sched_id INT, mode_id INT, test CHAR, test BOOLEANT );
 INSERT INTO  sched_modes VALUES ( 1,          1,               1,                '=',           False );
 
 EOF
