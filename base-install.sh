@@ -18,7 +18,7 @@ OS_VERSION=$(cat /etc/os-release | grep VERSION=)
 
 if [[ $OS_VERSION != *"jessie"* ]]
 then
-  printf "n\n\ Script must be run on PI OS Jessie. \n\n"
+  printf "\n\n Script must be run on PI OS Jessie. \n\n"
   exit 1
 fi
 
