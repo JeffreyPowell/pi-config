@@ -19,21 +19,21 @@ FLUSH PRIVILEGES;
 USE pi_heating_db;
 
 CREATE TABLE outputs        ( id  INT, name VARCHAR(256), pin INTEGER, value BOOLEAN );
-INSERT INTO  outputs VALUES ( 1,           'Hot Water',       08,          false );
-INSERT INTO  outputs VALUES ( 2,           'Heating',         10,          false );
+INSERT INTO  outputs VALUES ( 1,       'Hot Water',       08,          false );
+INSERT INTO  outputs VALUES ( 2,       'Heating',         10,          false );
 
-CREATE TABLE inputs        ( id INT, ref VARCHAR(20), name VARCHAR(256), ip  VARCHAR(16), value float );
-INSERT INTO  inputs VALUES ( 1,          '28-0000000',     'Lounge',          '192.168.0.11',   0.0 );
-INSERT INTO  inputs VALUES ( 2,          '28-0000001',     'Conservatory',    '192.168.0.11',   0.0 );
+CREATE TABLE inputs        ( id INT, ref VARCHAR(20), name VARCHAR(256), ip  VARCHAR(16), value FLOAT );
+INSERT INTO  inputs VALUES ( 1,      '28-0000000',    'Lounge',          '192.168.0.11',  0.0 );
+INSERT INTO  inputs VALUES ( 2,      '28-0000001',    'Conservatory',    '192.168.0.11',  0.0 );
 
 CREATE TABLE timers        ( id  INT, name VARCHAR(256), interval INT, start TIMESTAMP, value BOOLEAN );
-INSERT INTO  timers VALUES ( 1,            'Hot Water Boost', 30,               '00:00:00',      false );
-INSERT INTO  timers VALUES ( 2,            'Heating Boost',   30,               '',              false );
+INSERT INTO  timers VALUES ( 1,       'Hot Water Boost', 30,           '00:00:00',      false );
+INSERT INTO  timers VALUES ( 2,       'Heating Boost',   30,           '',              false );
 
-CREATE TABLE modes        ( id  INT,   name VARCHAR(256), value BOOLEAN );
-INSERT INTO  modes VALUES ( 1,             'Holiday',         false );
-INSERT INTO  modes VALUES ( 2,             'Weekend Away',    false );
-INSERT INTO  modes VALUES ( 3,             'Guests Staying',  false );
+CREATE TABLE modes        ( id  INT, name VARCHAR(256), value BOOLEAN );
+INSERT INTO  modes VALUES ( 1,       'Holiday',         false );
+INSERT INTO  modes VALUES ( 2,       'Weekend Away',    false );
+INSERT INTO  modes VALUES ( 3,       'Guests Staying',  false );
 
 CREATE TABLE schedules        ( id INT,      name VARCHAR(256),          start TIMESTAMP, end TIMESTAMP,   dow INT, value BOOLEAN );
 INSERT INTO  schedules VALUES ( 1,               'Heating Weekday Morning',  '09:00:00', '18:00:00', 124,         false );
