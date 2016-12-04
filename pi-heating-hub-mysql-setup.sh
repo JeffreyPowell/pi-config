@@ -26,9 +26,9 @@ CREATE TABLE inputs        ( id INTEGER, ref VARCHAR(20), name VARCHAR(256), ip 
 INSERT INTO  inputs VALUES ( 1,          '28-0000000',     'Lounge',          '192.168.0.11',   0.0 );
 INSERT INTO  inputs VALUES ( 2,          '28-0000001',     'Conservatory',    '192.168.0.11',   0.0 );
 
-CREATE TABLE timers        ( id  INTEGER,  name VARCHAR(256), interval INTEGER, start TIME, value BOOLEAN );
-INSERT INTO  timers VALUES ( 1,            'Hot Water Boost', 30,               '00:00:00', false );
-INSERT INTO  timers VALUES ( 2,            'Heating Boost',   30,               '',         false );
+CREATE TABLE timers        ( id  INTEGER,  name VARCHAR(256), interval INTEGER, start TIMESTAMP, value BOOLEAN );
+INSERT INTO  timers VALUES ( 1,            'Hot Water Boost', 30,               '00:00:00',      false );
+INSERT INTO  timers VALUES ( 2,            'Heating Boost',   30,               '',              false );
 
 CREATE TABLE modes        ( id  INTEGER,   name VARCHAR(256), value BOOLEAN );
 INSERT INTO  modes VALUES ( 1,             'Holiday',         false );
