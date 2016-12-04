@@ -26,7 +26,7 @@ CREATE TABLE inputs        ( id INT, ref VARCHAR(20), name VARCHAR(256), ip  VAR
 INSERT INTO  inputs VALUES ( 1,      '28-0000000',    'Lounge',          '192.168.0.11',  0.0 );
 INSERT INTO  inputs VALUES ( 2,      '28-0000001',    'Conservatory',    '192.168.0.11',  0.0 );
 
-CREATE TABLE timers        ( id  INT, name VARCHAR(256), interval INT, start TIMESTAMP, value BOOLEAN );
+CREATE TABLE timers        ( id  INT, name VARCHAR(256), duration INT, start TIMESTAMP, value BOOLEAN );
 INSERT INTO  timers VALUES ( 1,       'Hot Water Boost', 30,           '00:00:00',      false );
 INSERT INTO  timers VALUES ( 2,       'Heating Boost',   30,           '',              false );
 
