@@ -9,11 +9,11 @@ CREATE DATABASE pi-heating_db;
 
 CREATE USER 'pi'@'localhost' IDENTIFIED BY 'password';
 
-GRANT ALL ON pi-heating_db.* TO 'pi'@'localhost';
+GRANT ALL ON pi_heating_db.* TO 'pi'@'localhost';
 
 FLUSH PRIVILEGES;
 
-USE pi-heating_db;
+USE pi_heating_db;
 
 CREATE TABLE outputs        ( id  INTEGER, name VARCHAR(256), pin INTEGER, value BOOLEAN );
 INSERT INTO  outputs VALUES ( 1,           'Hot Water',       08,          false );
