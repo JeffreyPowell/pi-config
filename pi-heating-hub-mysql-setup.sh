@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mysql -uroot -ptest test << EOF
+mysql -uroot -proot << EOF
 
 CREATE DATABASE pi-heating_db;
 
