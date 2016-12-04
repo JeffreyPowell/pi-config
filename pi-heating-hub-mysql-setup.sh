@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf " Please enter the MySQL root password : "
+printf "/n/n/n Please enter the MySQL root password : "
 read MYSQL_PASSWORD
 
 mysql -uroot -p$MYSQL_PASSWORD<< EOF
