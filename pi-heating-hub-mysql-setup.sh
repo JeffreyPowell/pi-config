@@ -22,12 +22,12 @@ CREATE TABLE devices        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                               name VARCHAR(256) NOT NULL, 
                               pin INTEGER NOT NULL, 
                               value BOOLEAN DEFAULT FALSE );
-INSERT INTO  outputs VALUES ( 1,       'Hot Water',       08,          false );
-INSERT INTO  outputs VALUES ( 2,       'Heating',         10,          false );
+INSERT INTO  devices VALUES ( 1,       'Hot Water',       08,          false );
+INSERT INTO  devices VALUES ( 2,       'Heating',         10,          false );
 
-CREATE TABLE inputs        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, ref VARCHAR(20), name VARCHAR(256), ip  VARCHAR(16), value FLOAT );
-INSERT INTO  inputs VALUES ( 1,      '28-0000000',    'Lounge',          '192.168.0.11',  0.0 );
-INSERT INTO  inputs VALUES ( 2,      '28-0000001',    'Conservatory',    '192.168.0.11',  0.0 );
+CREATE TABLE sensors        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, ref VARCHAR(20), name VARCHAR(256), ip  VARCHAR(16), value FLOAT );
+INSERT INTO  sensors VALUES ( 1,      '28-0000000',    'Lounge',          '192.168.0.11',  0.0 );
+INSERT INTO  sensors VALUES ( 2,      '28-0000001',    'Conservatory',    '192.168.0.11',  0.0 );
 
 CREATE TABLE timers        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(256), duration INT, start TIME, value BOOLEAN );
 INSERT INTO  timers VALUES ( 1,       'Hot Water Boost', 30,           '00:00:00',      false );
@@ -47,22 +47,22 @@ INSERT INTO  schedules VALUES ( 5,      'Heating Weekend All day',  '09:00:00', 
 INSERT INTO  schedules VALUES ( 6,      'Water Weekday Morning',    '06:00:00', '08:00:00', 124,     false );
 INSERT INTO  schedules VALUES ( 7,      'Water Weekday Evening',    '16:00:00', '21:00:00', 124,     false );
 
-CREATE TABLE sched_output        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, sched_id INT, output_id INT );
-INSERT INTO  sched_output VALUES ( 1,      1,            1 );
-INSERT INTO  sched_output VALUES ( 2,      2,            1 );
-INSERT INTO  sched_output VALUES ( 3,      3,            1 );
-INSERT INTO  sched_output VALUES ( 4,      4,            1 );
-INSERT INTO  sched_output VALUES ( 5,      5,            1 );
-INSERT INTO  sched_output VALUES ( 6,      6,            1 );
-INSERT INTO  sched_output VALUES ( 7,      1,            2 );
-INSERT INTO  sched_output VALUES ( 8,      2,            2 );
-INSERT INTO  sched_output VALUES ( 9,      3,            2 );
-INSERT INTO  sched_output VALUES (10,      4,            2 );
+CREATE TABLE sched_device        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, sched_id INT, output_id INT );
+INSERT INTO  sched_device VALUES ( 1,      1,            1 );
+INSERT INTO  sched_device VALUES ( 2,      2,            1 );
+INSERT INTO  sched_device VALUES ( 3,      3,            1 );
+INSERT INTO  sched_device VALUES ( 4,      4,            1 );
+INSERT INTO  sched_device VALUES ( 5,      5,            1 );
+INSERT INTO  sched_device VALUES ( 6,      6,            1 );
+INSERT INTO  sched_device VALUES ( 7,      1,            2 );
+INSERT INTO  sched_device VALUES ( 8,      2,            2 );
+INSERT INTO  sched_device VALUES ( 9,      3,            2 );
+INSERT INTO  sched_device VALUES (10,      4,            2 );
 
-CREATE TABLE sched_input        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, sched_id INT, input_id INT, opp CHAR, value FLOAT );
-INSERT INTO  sched_input VALUES ( 1,      1,            1,            '<',      18.5 );
-INSERT INTO  sched_input VALUES ( 2,      2,            1,            '<',      20.0 );
-INSERT INTO  sched_input VALUES ( 3,      3,            1,            '<',      10.0 );
+CREATE TABLE sched_sensor        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, sched_id INT, input_id INT, opp CHAR, value FLOAT );
+INSERT INTO  sched_sensor VALUES ( 1,      1,            1,            '<',      18.5 );
+INSERT INTO  sched_sensor VALUES ( 2,      2,            1,            '<',      20.0 );
+INSERT INTO  sched_sensor VALUES ( 3,      3,            1,            '<',      10.0 );
 
 CREATE TABLE sched_timers        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, sched_id INT, timer_id INT, opp CHAR, value BOOLEAN );
 INSERT INTO  sched_timers VALUES ( 1,      1,            1,            '=',      False );
