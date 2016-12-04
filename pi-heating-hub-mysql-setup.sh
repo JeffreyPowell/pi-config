@@ -5,7 +5,7 @@ read MYSQL_PASSWORD
 
 mysql -uroot -p$MYSQL_PASSWORD<< EOF
 
-CREATE DATABASE pi_heating_db;
+CREATE DATABASE pi_heating_db IN NOT EXISTS;
 
 DROP USER pi@localhost;
 FLUSH PRIVILEGES;
