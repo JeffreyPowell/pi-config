@@ -18,7 +18,10 @@ FLUSH PRIVILEGES;
 
 USE pi_heating_db;
 
-CREATE TABLE outputs        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY , name VARCHAR(256), pin INTEGER, value BOOLEAN );
+CREATE TABLE devices        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                              name VARCHAR(256) NOT NULL, 
+                              pin INTEGER NOT NULL, 
+                              value BOOLEAN DEFAULT FALSE );
 INSERT INTO  outputs VALUES ( 1,       'Hot Water',       08,          false );
 INSERT INTO  outputs VALUES ( 2,       'Heating',         10,          false );
 
