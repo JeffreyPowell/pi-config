@@ -146,7 +146,7 @@ fi
 
 printf "\n\n Configuring Apache ...\n"
 
-  cat > /etc/apache2/sites-available/pi-heating.conf <<PORTS
+  cat > /etc/apache2/ports.conf <<PORTS
 Listen 8080
 PORTS
 
