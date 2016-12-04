@@ -22,8 +22,8 @@ INSERT INTO  outputs VALUES ( 1,           'Hot Water',       08,          false
 INSERT INTO  outputs VALUES ( 2,           'Heating',         10,          false );
 
 CREATE TABLE inputs        ( id INTEGER, ref VARCHAR(20), name VARCHAR(256), ip  VARCHAR(16), value float );
-INSERT INTO  inputs VALUES ( 1,          '28-0000000',     'Lounge',          192.168.0.11,   0.0 );
-INSERT INTO  inputs VALUES ( 2,          '28-0000001',     'Conservatory',    192.168.0.11,   0.0 );
+INSERT INTO  inputs VALUES ( 1,          '28-0000000',     'Lounge',          '192.168.0.11',   0.0 );
+INSERT INTO  inputs VALUES ( 2,          '28-0000001',     'Conservatory',    '192.168.0.11',   0.0 );
 
 CREATE TABLE timers        ( id  INTEGER,  name VARCHAR(256), interval INTEGER, start TIME, value BOOLEAN );
 INSERT INTO  timers VALUES ( 1,            'Hot Water Boost', 30,               '00:00:00', false );
