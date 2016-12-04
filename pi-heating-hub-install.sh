@@ -43,7 +43,6 @@ else
 fi
 
 PHP_INSTALLED=$(which php)
-echo ">$PHP_INSTALLED<"
 if [[ "$PHP_INSTALLED" == "" ]]
 then
   printf "\n\n Installing PHP ...\n"
@@ -61,7 +60,6 @@ else
 fi
 
 MYSQL_INSTALLED=$(which mysql)
-echo ">$MYSQL_INSTALLED<"
 if [[ "$MYSQL_INSTALLED" == "" ]]
 then
   printf "\n\n Installing MYSQL ...\n"
@@ -81,7 +79,6 @@ fi
 # apt-get install python3-mysqldb -y
 
 PYMYSQL_INSTALLED=$(find /var/lib/dpkg -name python-mysql*)
-echo ">$PYMYSQL_INSTALLED<"
 if [[ "$PYMYSQL_INSTALLED" == "" ]]
 then
   printf "\n\n Installing MYSQL Python Module ...\n"
