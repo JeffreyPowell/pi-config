@@ -61,7 +61,7 @@ INSERT INTO  sched_input VALUES ( 1,          1,               1,               
 INSERT INTO  sched_input VALUES ( 2,          2,               1,                '<',           20.0 );
 INSERT INTO  sched_input VALUES ( 3,          3,               1,                '<',           10.0 );
 
-CREATE TABLE sched_timers        ( id INT, sched_id INT, timer_id INT test1 CHAR, value BOOLEANT );
+CREATE TABLE sched_timers        ( id INT, sched_id INT, timer_id INT, test CHAR, value BOOLEANT );
 INSERT INTO  sched_timers VALUES ( 1,          1,               1,                '=',           False );
 
 CREATE TABLE sched_modes        ( id INT, sched_id INT, mode_id INT, test2 CHAR, value BOOLEANT );
