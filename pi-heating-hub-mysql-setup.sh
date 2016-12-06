@@ -64,10 +64,10 @@ INSERT INTO  sched_sensor VALUES ( 1,      1,            1,            '<',     
 INSERT INTO  sched_sensor VALUES ( 2,      2,            1,            '<',      20.0 );
 INSERT INTO  sched_sensor VALUES ( 3,      3,            1,            '<',      10.0 );
 
-CREATE TABLE sched_timers        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, sched_id INT, timer_id INT, opp CHAR, value BOOLEAN );
+CREATE TABLE sched_timer         ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, sched_id INT, timer_id INT, opp CHAR, value BOOLEAN );
 INSERT INTO  sched_timers VALUES ( 1,      1,            1,            '=',      False );
 
-CREATE TABLE sched_modes         ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, sched_id INT, mode_id INT, opp CHAR, value BOOLEAN );
+CREATE TABLE sched_mode          ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, sched_id INT, mode_id INT, opp CHAR, value BOOLEAN );
 INSERT INTO  sched_modes VALUES  ( 1,      1,            1,           '=',      False );
 
 EOF
