@@ -96,6 +96,22 @@ else
 fi
 
 
+RRD_INSTALLED=$(find /var/lib/dpkg -name rrdtool*)
+if [[ "$RRD_INSTALLED" == "" ]]
+then
+  printf "\n\n Installing RRD tool ...\n"
+  # Install Apache
+  apt-get install rrdtool -y
+  
+  RRD_INSTALLED=$(find /var/lib/dpkg -name rrdtool*)
+    if [[ "$RRD_INSTALLED" == "" ]]
+    then
+      printf "\n\n EXITING : RRD tool installation FAILED\n"
+      exit 1
+    fi
+else
+  printf "\n\n RRD tool is already installed. \n"
+fi
 
 # Install 'pi-heating-hub' app
 
