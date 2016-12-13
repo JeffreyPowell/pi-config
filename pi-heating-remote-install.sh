@@ -107,7 +107,9 @@ then
   mv "/home/pi/pi-heating-remote-$PI_HEATING_V" "/home/pi/pi-heating-remote"
   mv "/home/pi/pi-heating-remote/www" "/var/www/pi-heating-remote"
   chown -R pi:pi "/home/pi/pi-heating-remote"
-  chmod -R 750 "/home/pi/pi-heating-remote"
+  chmod -R 751 "/home/pi/pi-heating-remote"
+  chown -R pi:pi "/home/pi/pi-heating-remote/configs"
+  chmod -R 751 "/home/pi/pi-heating-remote/configs"
   chown -R pi:pi "/var/www/pi-heating-remote"
   chmod -R 755 "/var/www/pi-heating-remote"
   
