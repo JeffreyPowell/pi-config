@@ -151,6 +151,16 @@ else
   printf "\n\n pi-heating-hub v$PI_HEATING_V is already installed. \n"
 fi
 
+if [ ! -d "/home/pi/pi-heating-hub/data" ]
+  then
+    mkdir "/home/pi/pi-heating-hub/data"
+
+    cat > /etc/cron.d/pi-heating <<CRON
+* * * * * pi /usr/bin/python /home/pi/pi-heating-hub/cron/poll-sensors.py
+CRON
+    service cron restart
+  fi
+
 
 
 # configure app
