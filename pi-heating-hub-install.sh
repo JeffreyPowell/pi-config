@@ -101,7 +101,7 @@ if [[ "$RRD_INSTALLED" == "" ]]
 then
   printf "\n\n Installing RRD tool ...\n"
   # Install Apache
-  apt-get install rrdtool -y
+  apt-get install rrdtool php5-rrd -y
   
   RRD_INSTALLED=$(find /var/lib/dpkg -name rrdtool*)
     if [[ "$RRD_INSTALLED" == "" ]]
