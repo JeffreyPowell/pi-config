@@ -6,7 +6,7 @@
 
 # Die on any errors
 
-#set -e 
+#set -e
 clear
 
 if [[ `whoami` != "root" ]]
@@ -31,7 +31,7 @@ then
   update-rc.d apache2 enable
   a2dissite 000-default.conf
   service apache2 restart
-  
+
   APACHE_INSTALLED=$(which apache2)
     if [[ "$APACHE_INSTALLED" == "" ]]
     then
@@ -48,7 +48,7 @@ then
   printf "\n\n Installing PHP ...\n"
   # Install Apache
   apt-get install php5 -y
-  
+
   PHP_INSTALLED=$(which php)
     if [[ "$PHP_INSTALLED" == "" ]]
     then
@@ -65,7 +65,7 @@ then
   printf "\n\n Installing MYSQL ...\n"
   # Install Apache
   apt-get install mysql-server -y --fix-missing
-  
+
   MYSQL_INSTALLED=$(which mysql)
     if [[ "$MYSQL_INSTALLED" == "" ]]
     then
@@ -84,7 +84,7 @@ then
   printf "\n\n Installing MYSQL Python Module ...\n"
   # Install Apache
   apt-get install python-mysqldb -y
-  
+
   PYMYSQL_INSTALLED=$(find /var/lib/dpkg -name python-mysql*)
     if [[ "$PYMYSQL_INSTALLED" == "" ]]
     then
@@ -102,7 +102,7 @@ then
   printf "\n\n Installing RRD tool ...\n"
   # Install Apache
   apt-get install rrdtool php5-rrd -y
-  
+
   RRD_INSTALLED=$(find /var/lib/dpkg -name rrdtool*)
     if [[ "$RRD_INSTALLED" == "" ]]
     then
@@ -125,12 +125,12 @@ then
   then
     rm -rf "/home/pi/pi-heating-hub"
   fi
-  
+
   if [ -d "/var/www/pi-heating-hub" ]
   then
     rm -rf "/var/www/pi-heating-hub"
   fi
-  
+
   wget "https://github.com/JeffreyPowell/pi-heating-hub/archive/$PI_HEATING_V.tar.gz" -O "/home/pi/pi-heating-hub.tar.gz"
   tar -xvzf "/home/pi/pi-heating-hub.tar.gz"
   rm "/home/pi/pi-heating-hub.tar.gz"
@@ -140,13 +140,13 @@ then
   chmod -R 750 "/home/pi/pi-heating-hub"
   chown -R pi:pi "/var/www/pi-heating-hub"
   chmod -R 755 "/var/www/pi-heating-hub"
-  
+
   if [ ! -f "/home/pi/pi-heating-hub/README.md" ]
     then
       printf "\n\n EXITING : pi-heating-hub v$PI_HEATING_V installation FAILED\n"
       exit 1
     fi
-    
+
 else
   printf "\n\n pi-heating-hub v$PI_HEATING_V is already installed. \n"
 fi
@@ -157,6 +157,9 @@ if [ ! -d "/home/pi/pi-heating-hub/data" ]
 
     cat > /etc/cron.d/pi-heating <<CRON
 * * * * * pi /usr/bin/python /home/pi/pi-heating-hub/cron/poll-sensors.py
+* * * * * pi /usr/bin/python /home/pi/pi-heating-hub/cron/update-timers.py
+* * * * * pi /usr/bin/python /home/pi/pi-heating-hub/cron/process-schedules.py
+* * * * * pi /usr/bin/python /home/pi/pi-heating-hub/cron/ctivate-devices.py
 CRON
     service cron restart
   fi
@@ -183,7 +186,7 @@ PORTS
         Order allow,deny
         allow from all
     </Directory>
-    
+
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
