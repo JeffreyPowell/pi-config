@@ -156,10 +156,7 @@ if [ ! -d "/home/pi/pi-heating-hub/data" ]
     mkdir "/home/pi/pi-heating-hub/data"
 
     cat > /etc/cron.d/pi-heating <<CRON
-* * * * * pi /usr/bin/python /home/pi/pi-heating-hub/cron/poll-sensors.py
-* * * * * pi /usr/bin/python /home/pi/pi-heating-hub/cron/update-timers.py
-* * * * * pi /usr/bin/python /home/pi/pi-heating-hub/cron/process-schedules.py
-* * * * * pi /usr/bin/python /home/pi/pi-heating-hub/cron/ctivate-devices.py
+* * * * * pi /bin/bash /home/pi/pi-heating-hub/cron/wrapper.sh
 CRON
     service cron restart
   fi
