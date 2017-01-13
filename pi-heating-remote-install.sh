@@ -109,7 +109,7 @@ then
   chown -R pi:pi "/home/pi/pi-heating-remote"
   chmod -R 755 "/home/pi/pi-heating-remote"
   chown -R pi:pi "/home/pi/pi-heating-remote/configs"
-  chmod -R 751 "/home/pi/pi-heating-remote/configs"
+  chmod -R 755 "/home/pi/pi-heating-remote/configs"
   chown -R pi:pi "/var/www/pi-heating-remote"
   chmod -R 755 "/var/www/pi-heating-remote"
   
