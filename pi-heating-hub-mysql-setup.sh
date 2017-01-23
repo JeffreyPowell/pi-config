@@ -75,6 +75,10 @@ INSERT INTO  sched_modes VALUES  ( 1,      1,            1,           '=',      
 
 EOF
 
-
-
-
+cat > /hpme/pi/[i-heating-hub/config/config.ini <<CONFIG
+[db]
+server = localhost
+user = pi
+password = $PI_PASSWORD
+database = pi_heating_db
+CONFIG
