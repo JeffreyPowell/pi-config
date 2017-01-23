@@ -6,7 +6,7 @@ read MYSQL_PASSWORD
 
 PI_PASSWORD=$(date | md5sum | head -c12)
 
-mysql -uroot -p$MYSQL_PASSWORD<< EOF
+mysql -uroot -p$MYSQL_PASSWORD<< DATABASE
 
 DROP DATABASE IF EXISTS pi_heating_db;
 CREATE DATABASE pi_heating_db CHARACTER SET = utf8;
@@ -73,7 +73,7 @@ INSERT INTO  sched_timers VALUES ( 1,      1,            1,            '=',     
 CREATE TABLE sched_mode          ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, sched_id INT, mode_id INT, opp CHAR, value BOOLEAN );
 INSERT INTO  sched_modes VALUES  ( 1,      1,            1,           '=',      False );
 
-EOF
+DATABASE
 
 cat > /hpme/pi/[i-heating-hub/config/config.ini <<CONFIG
 [db]
