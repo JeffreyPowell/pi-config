@@ -3,6 +3,9 @@
 printf "\n\n\n Please enter the MySQL root password : "
 read MYSQL_PASSWORD
 
+
+PI_PASSWORD=$(date | md5sum | head -c12)
+
 mysql -uroot -p$MYSQL_PASSWORD<< EOF
 
 DROP DATABASE IF EXISTS pi_heating_db;
@@ -10,7 +13,7 @@ CREATE DATABASE pi_heating_db CHARACTER SET = utf8;
 
 DROP USER pi@localhost;
 FLUSH PRIVILEGES;
-CREATE USER 'pi'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'pi'@'localhost' IDENTIFIED BY '$PI_PASSWORD';
 
 GRANT ALL ON pi_heating_db.* TO 'pi'@'localhost';
 
