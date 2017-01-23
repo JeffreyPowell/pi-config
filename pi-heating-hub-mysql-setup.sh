@@ -25,8 +25,8 @@ CREATE TABLE devices        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                               name VARCHAR(256) NOT NULL, 
                               pin INTEGER NOT NULL, 
                               value BOOLEAN DEFAULT FALSE );
-INSERT INTO  devices VALUES ( 1,       'Hot Water',       08,          false );
-INSERT INTO  devices VALUES ( 2,       'Heating',         10,          false );
+INSERT INTO  devices VALUES ( 1,       'Hot Water Boiler',       08,          false );
+INSERT INTO  devices VALUES ( 2,       'Heating Circulation',         10,          false );
 
 CREATE TABLE sensors        ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, ref VARCHAR(20), name VARCHAR(256), ip  VARCHAR(16), value FLOAT );
 INSERT INTO  sensors VALUES ( 1,      '28-0000000',    'Lounge',          '192.168.0.11',  0.0 );
