@@ -115,7 +115,7 @@ fi
 
 # Install 'pi-heating-hub' app
 
-PI_HEATING_V='0.0.1'
+PI_HEATING_V='1.0.0'
 if [ ! -f "/home/pi/pi-heating-hub/README.md" ]
 then
   printf "\n\n Installing pi-heating-hub v$PI_HEATING_V ...\n"
