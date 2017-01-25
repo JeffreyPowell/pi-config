@@ -136,9 +136,9 @@ then
   rm "/home/pi/pi-heating-hub.tar.gz"
   mv "/home/pi/pi-heating-hub-$PI_HEATING_V" "/home/pi/pi-heating-hub"
   mv "/home/pi/pi-heating-hub/www" "/var/www/pi-heating-hub"
-  chown -R pi:pi "/home/pi/pi-heating-hub"
+  chown -R pi:www-data "/home/pi/pi-heating-hub"
   chmod -R 750 "/home/pi/pi-heating-hub"
-  chown -R pi:pi "/var/www/pi-heating-hub"
+  chown -R pi:www-data "/var/www/pi-heating-hub"
   chmod -R 755 "/var/www/pi-heating-hub"
 
   if [ ! -f "/home/pi/pi-heating-hub/README.md" ]
