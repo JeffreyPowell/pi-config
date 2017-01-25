@@ -11,8 +11,9 @@ mysql -uroot -p$MYSQL_PASSWORD<< DATABASE
 DROP DATABASE IF EXISTS pi_heating_db;
 CREATE DATABASE pi_heating_db CHARACTER SET = utf8;
 
-DROP USER pi@localhost;
+DELETE FROM mysql.user WHERE user='pi' AND host = 'localhost';
 FLUSH PRIVILEGES;
+
 CREATE USER 'pi'@'localhost' IDENTIFIED BY '$PI_PASSWORD';
 
 GRANT ALL ON pi_heating_db.* TO 'pi'@'localhost';
