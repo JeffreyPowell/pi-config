@@ -1,7 +1,7 @@
 #!/bin/bash
 
 printf "\n\n\n Please enter the MySQL root password : "
-read MYSQL_PASSWORD
+read -s MYSQL_PASSWORD
 
 
 PI_PASSWORD=$(date | md5sum | head -c12)
