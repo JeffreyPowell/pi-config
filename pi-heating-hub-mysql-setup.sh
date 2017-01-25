@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS 'sched_mode' (
                                             );
 DATABASE
 
-cat > /hpme/pi/pi-heating-hub/config/config.ini <<CONFIG
+cat > /home/pi/pi-heating-hub/config/config.ini <<CONFIG
 [db]
 server = localhost
 user = pi
