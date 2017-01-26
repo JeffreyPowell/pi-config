@@ -3,6 +3,7 @@
 printf "\n\n\n Please enter the MySQL root password : "
 read -s MYSQL_PASSWORD
 
+PI_USERNAME="pi2'
 
 PI_PASSWORD=$(date | md5sum | head -c12)
 
@@ -11,12 +12,13 @@ mysql -uroot -p$MYSQL_PASSWORD<< DATABASE
 DROP DATABASE IF EXISTS pi_heating_db;
 CREATE DATABASE pi_heating_db CHARACTER SET = utf8;
 
-DELETE FROM mysql.user WHERE user='pi' AND host = 'localhost';
+DELETE FROM mysql.user WHERE user='$PI_USERNAME' AND host = 'localhost';
+COMMIT;
 FLUSH PRIVILEGES;
 
-CREATE USER 'pi'@'localhost' IDENTIFIED BY '$PI_PASSWORD';
+CREATE USER '$PI_USERNAME'@'localhost' IDENTIFIED BY '$PI_PASSWORD';
 
-GRANT ALL ON pi_heating_db.* TO 'pi'@'localhost';
+GRANT ALL ON pi_heating_db.* TO '$PI_USERNAME'@'localhost';
 
 FLUSH PRIVILEGES;
 
@@ -102,7 +104,7 @@ DATABASE
 cat > /home/pi/pi-heating-hub/config/config.ini <<CONFIG
 [db]
 server = localhost
-user = pi
+user = $PI_USERNAME
 password = $PI_PASSWORD
 database = pi_heating_db
 CONFIG
