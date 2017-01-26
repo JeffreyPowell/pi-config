@@ -13,8 +13,7 @@ echo
 
 mysql -uroot -p$MYSQL_PASSWORD<< DATABASE
 
-#DROP DATABASE IF EXISTS pi_heating_db;
-
+DROP DATABASE IF EXISTS pi_heating_db;
 CREATE DATABASE pi_heating_db CHARACTER SET = utf8;
 
 #DROP USER '$PI_USERNAME'@'localhost';
