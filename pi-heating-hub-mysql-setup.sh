@@ -1,34 +1,35 @@
 #!/bin/bash
 
 printf "\n\n\n Please enter the MySQL root password : "
-read -s MYSQL_PASSWORD
+read -s ROOT_PASSWORD
 
-PI_USERNAME='pi7'
-
-PI_PASSWORD=$(date | md5sum | head -c12)
+DB_USERNAME='pi7'
+DB_PASSWORD=$(date | md5sum | head -c12)
+DB_SERVER='localhost'
+DB_NAME='pi_heating_db'
 
 echo
-echo $PI_PASSWORD
+echo $DB_PASSWORD
 echo
 
-mysql -uroot -p$MYSQL_PASSWORD<< DATABASE
+mysql -uroot -p$ROOT_PASSWORD<< DATABASE
 
-#DROP DATABASE IF EXISTS pi_heating_db;
-CREATE DATABASE pi_heating_db CHARACTER SET = utf8;
+#DROP DATABASE IF EXISTS DB_NAME;
+CREATE DATABASE DB_NAME CHARACTER SET = utf8;
 
-#DROP USER IF EXISTS '$PI_USERNAME'@'localhost';
+#DROP USER IF EXISTS '$DB_USERNAME'@'$DB_SERVER';
 #COMMIT;
 #FLUSH PRIVILEGES;
 
 
-CREATE USER '$PI_USERNAME'@'localhost';
-SET PASSWORD FOR '$PI_USERNAME'@'localhost' = PASSWORD('$PI_PASSWORD');
+CREATE USER '$DB_USERNAME'@'$DB_SERVER';
+SET PASSWORD FOR '$DB_USERNAME'@'$DB_SERVER' = PASSWORD('$DB_PASSWORD');
 
-GRANT ALL ON pi_heating_db.* TO '$PI_USERNAME'@'localhost';
+GRANT ALL ON DB_NAME.* TO '$DB_USERNAME'@'$DB_SERVER';
 
 FLUSH PRIVILEGES;
 
-USE pi_heating_db;
+USE DB_NAME;
 
 CREATE TABLE IF NOT EXISTS devices   (      d_id          int(11)       NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                             name          varchar(256)  NOT NULL,
@@ -109,9 +110,8 @@ DATABASE
 
 cat > /home/pi/pi-heating-hub/config/config.ini <<CONFIG
 [db]
-server = localhost
-user = $PI_USERNAME
-password = $PI_PASSWORD
-database = pi_heating_db
-
+server = $DB_SERVER
+user = $DB_USERNAME
+password = $DB_PASSWORD
+database = $DB_NAME
 CONFIG
