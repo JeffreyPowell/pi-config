@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS devices   (      d_id          int(11)       NOT NULL
                                             value         tinyint(1)    DEFAULT 0
                                             );
 
-CREATE TABLE IF NOT EXISTS 'sensors'   (
+CREATE TABLE IF NOT EXISTS sensors   (
                                             'id'         bigint(11)     NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                             'ref'        varchar(20)    DEFAULT NULL,
                                             'name'       varchar(256)   DEFAULT NULL,
