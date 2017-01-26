@@ -139,7 +139,7 @@ if [[ "$NMP_INSTALLED" == "" ]]
 then
   printf "\n\n Installing nmap ...\n"
   # Install Apache
-  apt-get install rrdtool php5-rrd -y
+  apt-get install nmap -y
 
   NMP_INSTALLED=$(find /var/lib/dpkg -name nmap*)
     if [[ "$NMP_INSTALLED" == "" ]]
