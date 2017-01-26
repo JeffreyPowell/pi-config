@@ -25,7 +25,7 @@ CREATE DATABASE pi_heating_db CHARACTER SET = utf8;
 
 CREATE USER '$PI_USERNAME'@'localhost';
 
-SET PASSWORD FOR '$PI_USERNAME'@'localhost' = '$PI_PASSWORD';
+SET PASSWORD FOR '$PI_USERNAME'@'localhost' = PASSWORD('$PI_PASSWORD');
 
 GRANT ALL ON pi_heating_db.* TO '$PI_USERNAME'@'localhost';
 
