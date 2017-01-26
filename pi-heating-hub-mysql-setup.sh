@@ -3,7 +3,7 @@
 printf "\n\n\n Please enter the MySQL root password : "
 read -s MYSQL_PASSWORD
 
-PI_USERNAME='pi6'
+PI_USERNAME='pi7'
 
 PI_PASSWORD=$(date | md5sum | head -c12)
 
@@ -13,15 +13,15 @@ echo
 
 mysql -uroot -p$MYSQL_PASSWORD<< DATABASE
 
-DROP DATABASE IF EXISTS pi_heating_db;
+#DROP DATABASE IF EXISTS pi_heating_db;
 CREATE DATABASE pi_heating_db CHARACTER SET = utf8;
 
-DROP USER IF EXISTS '$PI_USERNAME'@'localhost';
-COMMIT;
-FLUSH PRIVILEGES;
+#DROP USER IF EXISTS '$PI_USERNAME'@'localhost';
+#COMMIT;
+#FLUSH PRIVILEGES;
 
 
-CREATE USER IF NOT EXISTS '$PI_USERNAME'@'localhost';
+CREATE USER '$PI_USERNAME'@'localhost';
 SET PASSWORD FOR '$PI_USERNAME'@'localhost' = PASSWORD('$PI_PASSWORD');
 
 GRANT ALL ON pi_heating_db.* TO '$PI_USERNAME'@'localhost';
@@ -36,16 +36,16 @@ CREATE TABLE IF NOT EXISTS devices   (      d_id          int(11)       NOT NULL
                                             active_level  tinyint(4)    DEFAULT NULL,
                                             value         tinyint(1)    DEFAULT 0
                                             );
-/*
-CREATE TABLE IF NOT EXISTS 'sensors'   (
-                                            'id' bigint(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                                            'ref' varchar(20) DEFAULT NULL,
-                                            'name' varchar(256) DEFAULT NULL,
-                                            'ip' varchar(16) DEFAULT NULL,
-                                            'value' float DEFAULT NULL,
-                                            'unit' varchar(11) NOT NULL
-                                            );
 
+CREATE TABLE IF NOT EXISTS 'sensors'   (
+                                            'id'         bigint(11)     NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                            'ref'        varchar(20)    DEFAULT NULL,
+                                            'name'       varchar(256)   DEFAULT NULL,
+                                            'ip'          varchar(16)   DEFAULT NULL,
+                                            'value'      float          DEFAULT NULL,
+                                            'unit'       varchar(11)    NOT NULL
+                                            );
+/*
 CREATE TABLE IF NOT EXISTS 'timers'    (
                                             'id' int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                             'name' varchar(256) DEFAULT NULL,
