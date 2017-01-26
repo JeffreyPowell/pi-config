@@ -24,8 +24,7 @@ FLUSH PRIVILEGES;
 
 USE pi_heating_db;
 
-CREATE TABLE IF NOT EXISTS devices   (
-                                            'd_id' int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS devices   (      'd_id' int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                             'name' varchar(256) NOT NULL,
                                             'pin' int(11) DEFAULT NULL,
                                             'active_level' tinyint(4) DEFAULT NULL,
