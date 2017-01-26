@@ -3,7 +3,7 @@
 printf "\n\n\n Please enter the MySQL root password : "
 read -s MYSQL_PASSWORD
 
-PI_USERNAME='pi5'
+PI_USERNAME='pi6'
 
 PI_PASSWORD=$(date | md5sum | head -c12)
 
@@ -21,7 +21,7 @@ COMMIT;
 FLUSH PRIVILEGES;
 
 
-CREATE USER '$PI_USERNAME'@'localhost';
+CREATE USER IF NOT EXISTS '$PI_USERNAME'@'localhost';
 SET PASSWORD FOR '$PI_USERNAME'@'localhost' = PASSWORD('$PI_PASSWORD');
 
 GRANT ALL ON pi_heating_db.* TO '$PI_USERNAME'@'localhost';
