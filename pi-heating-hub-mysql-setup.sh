@@ -3,7 +3,7 @@
 printf "\n\n\n Please enter the MySQL root password : "
 read -s MYSQL_PASSWORD
 
-PI_USERNAME="pi2'
+PI_USERNAME='pi2'
 
 PI_PASSWORD=$(date | md5sum | head -c12)
 
@@ -107,4 +107,5 @@ server = localhost
 user = $PI_USERNAME
 password = $PI_PASSWORD
 database = pi_heating_db
+
 CONFIG
