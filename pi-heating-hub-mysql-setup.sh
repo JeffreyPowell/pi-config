@@ -52,6 +52,11 @@ CREATE TABLE IF NOT EXISTS timers    (      id            int(11)       NOT NULL
 CREATE TABLE IF NOT EXISTS modes     (      id            int(11)       NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                             name          varchar(256)  DEFAULT NULL,
                                             value         tinyint(1)    DEFAULT NULL );
+                                            
+CREATE TABLE IF NOT EXISTS network   (      id            int(11)       NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                            mac           varchar(17)   DEFAULT NULL,
+                                            name          varchar(256)  DEFAULT NULL,
+                                            value         tinyint(1)    DEFAULT NULL );
                             
 CREATE TABLE IF NOT EXISTS schedules (      id            int(11)       NOT NULL AUTO_INCREMENT PRIMARY KEY, 
                                             name          varchar(256)  DEFAULT NULL,
@@ -88,6 +93,11 @@ CREATE TABLE IF NOT EXISTS sched_mode (     sm_id         int(11)       NOT NULL
                                             mode_id       int(11)       DEFAULT NULL,
                                             test_opp      char(1)       DEFAULT NULL,
                                             test_value    tinyint(1)    DEFAULT NULL );
+                                            
+CREATE TABLE IF NOT EXISTS sched_network (  sn_id         int(11)       NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                            sched_id      int(11)       DEFAULT NULL,
+                                            network_id    int(11)       DEFAULT NULL,
+                                            test          tinyint(1)    DEFAULT NULL );
 
 DATABASE
 
