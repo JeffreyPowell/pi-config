@@ -3,7 +3,7 @@
 printf "\n\n\n Please enter the MySQL root password : "
 read -s MYSQL_PASSWORD
 
-PI_USERNAME='pi'
+PI_USERNAME='pi5'
 
 PI_PASSWORD=$(date | md5sum | head -c12)
 
@@ -13,12 +13,13 @@ echo
 
 mysql -uroot -p$MYSQL_PASSWORD<< DATABASE
 
-DROP DATABASE IF EXISTS pi_heating_db;
+#DROP DATABASE IF EXISTS pi_heating_db;
+
 CREATE DATABASE pi_heating_db CHARACTER SET = utf8;
 
-DROP USER '$PI_USERNAME'@'localhost';
-COMMIT;
-FLUSH PRIVILEGES;
+#DROP USER '$PI_USERNAME'@'localhost';
+#COMMIT;
+#FLUSH PRIVILEGES;
 
 #CREATE USER '$PI_USERNAME'@'localhost' IDENTIFIED BY '$PI_PASSWORD';
 
