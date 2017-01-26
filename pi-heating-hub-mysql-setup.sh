@@ -7,14 +7,16 @@ PI_USERNAME='pi3'
 
 PI_PASSWORD=$(date | md5sum | head -c12)
 
+echo
 echo $PI_PASSWORD
+echo
 
 mysql -uroot -p$MYSQL_PASSWORD<< DATABASE
 
 DROP DATABASE IF EXISTS pi_heating_db;
 CREATE DATABASE pi_heating_db CHARACTER SET = utf8;
 
-DELETE FROM mysql.user WHERE user='$PI_USERNAME' AND host = 'localhost';
+#DELETE FROM mysql.user WHERE user = '$PI_USERNAME';
 COMMIT;
 FLUSH PRIVILEGES;
 
