@@ -3,7 +3,7 @@
 printf "\n\n\n Please enter the MySQL root password : "
 read -s MYSQL_PASSWORD
 
-PI_USERNAME='pi2'
+PI_USERNAME='pi3'
 
 PI_PASSWORD=$(date | md5sum | head -c12)
 
