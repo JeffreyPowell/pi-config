@@ -7,6 +7,8 @@ PI_USERNAME='pi3'
 
 PI_PASSWORD=$(date | md5sum | head -c12)
 
+echo $PI_PASSWORD
+
 mysql -uroot -p$MYSQL_PASSWORD<< DATABASE
 
 DROP DATABASE IF EXISTS pi_heating_db;
