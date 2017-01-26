@@ -23,6 +23,7 @@ FLUSH PRIVILEGES;
 #CREATE USER '$PI_USERNAME'@'localhost' IDENTIFIED BY '$PI_PASSWORD';
 
 CREATE USER IF NOT EXISTS '$PI_USERNAME'@'localhost';
+
 SET PASSWORD FOR '$PI_USERNAME'@'localhost' = '$PI_PASSWORD';
 
 GRANT ALL ON pi_heating_db.* TO '$PI_USERNAME'@'localhost';
@@ -37,7 +38,7 @@ CREATE TABLE IF NOT EXISTS devices   (      d_id          int(11)       NOT NULL
                                             active_level  tinyint(4)    DEFAULT NULL,
                                             value         tinyint(1)    DEFAULT 0
                                             );
-  
+/*
 CREATE TABLE IF NOT EXISTS 'sensors'   (
                                             'id' bigint(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                             'ref' varchar(20) DEFAULT NULL,
@@ -105,6 +106,7 @@ CREATE TABLE IF NOT EXISTS 'sched_mode' (
                                             'test_opp' char(1) DEFAULT NULL,
                                             'test_value' tinyint(1) DEFAULT NULL
                                             );
+*/
 DATABASE
 
 cat > /home/pi/pi-heating-hub/config/config.ini <<CONFIG
