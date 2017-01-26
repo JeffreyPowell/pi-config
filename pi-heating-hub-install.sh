@@ -132,6 +132,25 @@ else
   printf "\n\n RRD tool is already installed. \n"
 fi
 
+#sudo apt-get install nmap
+
+NMP_INSTALLED=$(find /var/lib/dpkg -name nmap*)
+if [[ "$NMP_INSTALLED" == "" ]]
+then
+  printf "\n\n Installing nmap ...\n"
+  # Install Apache
+  apt-get install rrdtool php5-rrd -y
+
+  NMP_INSTALLED=$(find /var/lib/dpkg -name nmap*)
+    if [[ "$NMP_INSTALLED" == "" ]]
+    then
+      printf "\n\n EXITING : nmap  installation FAILED\n"
+      exit 1
+    fi
+else
+  printf "\n\n nmap is already installed. \n"
+fi
+
 # Install 'pi-heating-hub' app
 
 PI_HEATING_V='1.0.0'
