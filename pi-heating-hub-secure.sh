@@ -37,7 +37,5 @@ mv /home/pi/.htpasswd /home/pi/pi-heating-hub/.htpasswd
 chmod 644 /home/pi/pi-heating-hub/.htpasswd
 
 
-
-
-printf "\n\n Installation Complete. Some changes might require a reboot. \n\n"
+printf "\n\n Installation Complete. \n\n"
 exit 1
