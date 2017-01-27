@@ -10,3 +10,6 @@ curl "https://raw.githubusercontent.com/JeffreyPowell/pi-config/master/pi-heatin
 curl "https://raw.githubusercontent.com/JeffreyPowell/pi-config/master/pi-heating-hub-install.sh" > pi-heating-hub-install.sh && sudo bash pi-heating-hub-install.sh
 
 curl "https://raw.githubusercontent.com/JeffreyPowell/pi-config/master/pi-heating-hub-mysql-setup.sh" > pi-heating-hub-mysql-setup.sh && sudo bash pi-heating-hub-mysql-setup.sh
+
+curl "https://raw.githubusercontent.com/JeffreyPowell/pi-config/master/pi-heating-hub-secure.sh" > pi-heating-hub-secure.sh && sudo bash pi-heating-hub-secure.sh
+
