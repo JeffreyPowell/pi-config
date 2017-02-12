@@ -176,6 +176,12 @@ then
   mv "/home/pi/pi-heating-hub/www" "/var/www/pi-heating-hub"
   chown -R pi:www-data "/home/pi/pi-heating-hub"
   chmod -R 750 "/home/pi/pi-heating-hub"
+  
+  if [ ! -d "/var/www/pi-heating-hub/data" ]
+  then
+    mkdir "/home/pi/pi-heating-hub/data"
+  fi
+  
   mkdir "/home/pi/pi-heating-hub/data"
   chown -R pi:www-data "/home/pi/pi-heating-hub/data"
   chmod -R 775 "/home/pi/pi-heating-hub/data"
