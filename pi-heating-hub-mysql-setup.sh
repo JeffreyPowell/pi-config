@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS sensors   (      id            bigint(11)    NOT NULL
 CREATE TABLE IF NOT EXISTS timers    (      id            int(11)       NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                             name          varchar(256)  DEFAULT NULL,
                                             duration      int(11)       DEFAULT NULL,
-                                            value         tinyint(1)    DEFAULT NULL ); 
+                                            value         int(11)       DEFAULT NULL ); 
 
 CREATE TABLE IF NOT EXISTS modes     (      id            int(11)       NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                             name          varchar(256)  DEFAULT NULL,
